@@ -86,7 +86,7 @@
     - **SOC Manager (Quản lý SOC):**
         - **Kỹ năng:** Quản lý đội ngũ, hiểu biết về bảo mật tổ chức, kỹ năng đánh giá rủi ro, kiến thức về tuân thủ quy định.
         - **Nhiệm vụ:** Giám sát và điều phối hoạt động của SOC, đào tạo nhân viên, đảm bảo các quy trình bảo mật tuân thủ các tiêu chuẩn tổ chức, báo cáo cho CISO hoặc các quản lý cấp cao khác.
-1.2.2 Công nghệ
+### 1.2.2 Công nghệ
 - Một vài công cụ cũng như hệ thống quen thuộc có thể nhắc đến trong **SOC** như là: SIEM, SOAR, IDS/IPS, và EDR.
 - Các công cụ, hệ thống này có các chức năng cũng như nhiệm vụ khác nhau. Cụ thể thì:
     - **SIEM ([Security Information and Event Management](https://www.microsoft.com/vi-vn/security/business/security-101/what-is-siem))**
@@ -288,41 +288,6 @@ IoC đóng vai trò quan trọng trong việc phát hiện và phân tích các 
 | **SolarWinds**             | Một trong các vụ tấn công nổi bật vào chuỗi cung ứng, tin tặc đã xâm nhập vào phần mềm quản lý của SolarWinds để lây lan mã độc vào các tổ chức lớn, bao gồm cả chính phủ Mỹ. |
 | **Nguy cơ bảo mật chuỗi cung ứng** | Các tổ chức có thể bị tấn công qua các nhà cung cấp dịch vụ, đối tác hoặc nhà cung cấp phần mềm, khiến cho toàn bộ hệ thống bị xâm nhập qua một điểm yếu bên ngoài. |
 
-# 2.3 Quá trình thu thập và phân tích IoC
-| **Quá trình**              | **Mô tả**                                                                                                                                                         |
-|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Thu thập IoC**           | Thu thập các chỉ số IoC từ nhiều nguồn như SIEM, hệ thống giám sát mạng, các công cụ bảo mật, và các báo cáo tấn công từ các tổ chức bảo mật.                  |
-| **Phân tích IoC**          | Phân tích các IoC thu thập được để xác định mối đe dọa, tìm hiểu về kẻ tấn công, các phương thức tấn công đã sử dụng, và các mục tiêu đã bị xâm nhập.            |
-| **Đánh giá mối đe dọa**    | Đánh giá mức độ nghiêm trọng và tác động của các mối đe dọa để xác định hành động cần thiết (chặn, cách ly, báo cáo, v.v.).                                      |
-## 2.2 Các phương thức tấn công phổ biến
-
-### 2.2.1 Tấn công mạng truyền thống
-| **Phương thức**            | **Mô tả**                                                                                                                                                         | **Ví dụ**                               |
-|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| **Phishing**               | Tấn công lừa đảo qua email hoặc trang web giả mạo, đánh lừa người dùng cung cấp thông tin cá nhân hoặc tài khoản.                                                 | Email giả mạo ngân hàng yêu cầu thay đổi mật khẩu. |
-| **DDoS (Distributed Denial of Service)** | Tấn công từ chối dịch vụ phân tán nhằm làm tắc nghẽn hoặc hạ gục hệ thống mục tiêu bằng cách gửi một lượng lớn yêu cầu đồng thời.                              | Tấn công DDoS vào một trang web của tổ chức lớn.  |
-| **Brute Force Attack**     | Tấn công thử mật khẩu bằng cách thử mọi khả năng có thể cho đến khi tìm ra mật khẩu đúng.                                                                         | Tấn công vào tài khoản người dùng bằng cách thử nhiều mật khẩu. |
-| **SQL Injection**          | Tấn công vào cơ sở dữ liệu của ứng dụng web bằng cách chèn mã SQL độc hại vào đầu vào của người dùng để truy xuất hoặc thay đổi dữ liệu không được phép.         | Nhập mã SQL vào ô tìm kiếm để truy cập thông tin bảo mật trong cơ sở dữ liệu. |
-
-### 2.2.2 Tấn công phần mềm độc hại
-| **Phương thức**            | **Mô tả**                                                                                                                                                         | **Ví dụ**                               |
-|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| **Malware**                | Phần mềm độc hại được thiết kế để gây hại cho máy tính hoặc hệ thống, bao gồm virus, trojan, worm và nhiều loại khác.                                           | Trojan horse cài đặt phần mềm gián điệp. |
-| **Ransomware**             | Phần mềm độc hại mã hóa dữ liệu và yêu cầu người dùng trả tiền chuộc để giải mã dữ liệu bị khóa.                                                                | WannaCry, NotPetya.                    |
-| **Spyware**                | Phần mềm gián điệp theo dõi hành động của người dùng mà không có sự đồng ý, thu thập dữ liệu nhạy cảm như thông tin đăng nhập và dữ liệu ngân hàng.                | Phần mềm gián điệp theo dõi keylogger.  |
-
-### 2.2.3 Tấn công nâng cao và lâu dài (APT)
-| **Đặc điểm**               | **Mô tả**                                                                                                                                                         |
-|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **APT**                    | Các cuộc tấn công kéo dài, tinh vi và được thực hiện bởi những nhóm có mục tiêu cao như các tổ chức nhà nước hoặc tội phạm tổ chức, nhắm vào các tổ chức lớn.   |
-| **Cách thức và mục tiêu chính** | Thường bắt đầu với tấn công phishing hoặc lừa đảo, tiếp theo là xâm nhập vào hệ thống và duy trì quyền kiểm soát trong một thời gian dài, với mục đích thu thập thông tin hoặc phá hoại hệ thống. |
-
-### 2.2.4 Tấn công vào chuỗi cung ứng
-| **Ví dụ**                  | **Mô tả**                                                                                                                                                         |
-|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **SolarWinds**             | Một trong các vụ tấn công nổi bật vào chuỗi cung ứng, tin tặc đã xâm nhập vào phần mềm quản lý của SolarWinds để lây lan mã độc vào các tổ chức lớn, bao gồm cả chính phủ Mỹ. |
-| **Nguy cơ bảo mật chuỗi cung ứng** | Các tổ chức có thể bị tấn công qua các nhà cung cấp dịch vụ, đối tác hoặc nhà cung cấp phần mềm, khiến cho toàn bộ hệ thống bị xâm nhập qua một điểm yếu bên ngoài. |
-
 ## 2.3 Quá trình thu thập và phân tích IoC
 - Thông qua việc thu thập và phân tích IoC, các tổ chức có thể nâng cao khả năng phát hiện các cuộc tấn công và giảm thiểu thiệt hại từ các mối đe dọa bảo mật.
 
@@ -410,20 +375,20 @@ Các dấu hiệu nhận biết sự cố an toàn thông tin có thể bao gồ
   - **Kế hoạch phục hồi**: Đảm bảo rằng các hệ thống và dữ liệu quan trọng có thể được khôi phục nhanh chóng sau sự cố thông qua các bản sao lưu và các biện pháp khôi phục.
   - **Đào tạo và thử nghiệm**: Đảm bảo rằng đội ngũ nhân viên được đào tạo đầy đủ và các quy trình ứng phó sự cố được kiểm tra định kỳ thông qua các bài tập mô phỏng sự cố để đánh giá tính hiệu quả.
 
-## 4. Event và Logging
+# 4. Event và Logging
 
-### 4.1 Khái niệm về sự kiện (Event) và bản ghi (Logging)
+## 4.1 Khái niệm về sự kiện (Event) và bản ghi (Logging)
 
-#### 4.1.1 Định nghĩa Event và Log
+### 4.1.1 Định nghĩa Event và Log
 - **Sự kiện (Event)**: Là những thay đổi hoặc hoạt động quan trọng trong hệ thống mà cần được ghi nhận và theo dõi. Ví dụ bao gồm người dùng đăng nhập, cài đặt phần mềm mới, hoặc một cuộc tấn công mạng. Các sự kiện có thể bao gồm cả hành vi bình thường và các hành vi không bình thường, có thể dẫn đến sự cố bảo mật.
 - **Log**: Là bản ghi chi tiết về các sự kiện xảy ra trong hệ thống. Log có thể được tạo ra bởi hệ điều hành, phần mềm, phần cứng hoặc bất kỳ hệ thống nào khác trong môi trường công nghệ thông tin. Các log này giúp xác định những hoạt động xảy ra trong một thời gian nhất định, và có thể cung cấp thông tin quan trọng khi phân tích các sự cố bảo mật.
 
-#### 4.1.2 Các loại log trong hệ thống
+### 4.1.2 Các loại log trong hệ thống
 - **Log hệ thống**: Là bản ghi các sự kiện liên quan đến hoạt động của hệ điều hành và các thành phần hệ thống. Các log này thường ghi nhận các hoạt động như khởi động lại hệ thống, lỗi hệ thống, hoặc thay đổi cấu hình.
 - **Log ứng dụng**: Là bản ghi các sự kiện xảy ra trong các ứng dụng phần mềm. Chúng có thể ghi lại các hành động của người dùng, lỗi ứng dụng, hoặc bất kỳ sự kiện quan trọng nào trong quá trình chạy ứng dụng.
 - **Log bảo mật**: Là bản ghi các sự kiện liên quan đến bảo mật hệ thống, như đăng nhập thất bại, thay đổi quyền truy cập, các cuộc tấn công hoặc hành vi đáng ngờ khác. Log bảo mật đóng vai trò quan trọng trong việc phát hiện các cuộc tấn công hoặc truy cập trái phép.
 
-#### 4.1.3 Tầm quan trọng của log trong phát hiện và điều tra sự cố
+### 4.1.3 Tầm quan trọng của log trong phát hiện và điều tra sự cố
 - **Phát hiện sự cố**: Logs là công cụ quan trọng để phát hiện và nhận diện các sự cố bảo mật. Chúng cung cấp thông tin về các sự kiện bất thường hoặc hành vi đáng ngờ trong hệ thống, từ đó giúp phát hiện các cuộc tấn công hoặc xâm phạm hệ thống.
 - **Điều tra sự cố**: Khi một sự cố xảy ra, logs là nguồn thông tin chủ yếu để phân tích nguyên nhân và xác định phạm vi của sự cố. Chúng cung cấp các chi tiết về những gì đã xảy ra, khi nào, và ai là người thực hiện, giúp các chuyên gia bảo mật điều tra và xử lý sự cố hiệu quả hơn.
 
