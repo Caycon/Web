@@ -398,3 +398,16 @@ lệnh Apache sau:
 - Chall này chỉ cần sửa `Content-Type: image/jpeg` là oke r:)))
 
 ![image](https://github.com/user-attachments/assets/a1c06b7f-a7f8-4203-a409-1860df93024f)
+
+## LV6
+- Với chall này thì server sẽ check các bytes đặc biệt của các loại file.
+```php
+    try {
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime_type = finfo_file($finfo, $_FILES['file']['tmp_name']);
+        $whitelist = array("image/jpeg", "image/png", "image/gif");
+        if (!in_array($mime_type, $whitelist, TRUE)) {
+            die("Hack detected");
+        }
+```
+- H ta upload file png rồi chèn thêm code vào là được.
