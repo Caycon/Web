@@ -410,4 +410,5 @@ lệnh Apache sau:
             die("Hack detected");
         }
 ```
-- H ta upload file png rồi chèn thêm code vào là được.
+- H ta upload file giữ lại các bytes đặc biệt rồi chèn thêm code vào là được.
+![image](https://github.com/user-attachments/assets/1a85cd0a-8498-4a9a-af30-4bb7ab07a198)
