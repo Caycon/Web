@@ -178,3 +178,13 @@ SELECT * FROM users WHERE username = 'admin' -- ' AND password = '';
 | **Dữ liệu phù hợp**      | Phù hợp với dữ liệu có cấu trúc và quan hệ rõ ràng.         | Thích hợp với dữ liệu phi cấu trúc hoặc thay đổi thường xuyên. |
 | **Ứng dụng phổ biến**    | Hệ thống quản lý tài chính, ERP, CRM.                      | Big data, mạng xã hội, phân tích log, dữ liệu IoT.  |
 | **Ví dụ**               | MySQL, PostgreSQL, Oracle, SQL Server.                     | MongoDB, Redis, Cassandra, Neo4j.                  |
+
+## MySQL
+- Structured Query Language (SQL) hay ngôn ngữ truy vấn có cấu trúc là một ngôn ngữ tiêu chuẩn được sử dụng để giao tiếp và quản lý dữ liệu trong hệ quản trị cơ sở dữ liệu quan hệ (**Relational Database Management System - RDBMS**). Nó cho phép người dùng thực hiện các thao tác trên cơ sở dữ liệu như truy vấn, thêm, sửa, xóa dữ liệu và quản lý cấu trúc cơ sở dữ liệu.
+- Tuy nhiên tùy thuộc vào loại **RDBMS** mà **SQL syntax** có thể khác nhau giữa các **RDNMS**. Mặc dù khác nhau nhưng tất cả chúng đều phải tuân theo tiêu chuẩn **ISO** của SQL. Syntax MySQL/MariaDB cho các ví dụ được hiển thị. SQL có thể được sử dụng để thực hiện các hành động sau:
+    - **Retrieve data**
+    - **Update data**
+    - **Delete data**
+    - **Create new tables and databases**
+    - **Add / remove users**
+    - **Assign permissions to these users**
