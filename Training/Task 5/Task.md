@@ -6,4 +6,4 @@
     - Bonus:
         + Làm 6 lab sau, Write up chi tiết, giải thích từng config của apache trong mỗi challenge, từng cách bypass
 
-- Deadline: 2 tuần (23h59 29/11/2024)
+- Deadline: 2 tuần (23h59 19/11/2024)

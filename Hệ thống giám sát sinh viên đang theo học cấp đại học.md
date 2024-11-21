@@ -1,3 +1,62 @@
+<!-- LỜI CẢM ƠN ...............................................................................................................2
+CHƯƠNG 1: TỔNG QUAN .....................................................................................8
+1.1. LÝ DO CHỌN ĐỀ TÀI .........................................................................................8
+1.2. XÁC ĐỊNH ĐỀ TÀI .............................................................................................8
+
+1.2.1. Tên đề tài ......................................................................................................8
+1.2.2. Mục tiêu của đề tài .......................................................................................8
+1.2.3. Phạm vi hệ thống ..........................................................................................8
+1.2.4. Phạm vi nghiên cứu .....................................................................................8
+1.3. CẤU TRÚC BÁO CÁO .......................................................................................8
+1.4. PHƯƠNG PHÁP NGHIÊN CỨU ......................................................................8
+CHƯƠNG 2: KIẾN THỨC CƠ SỞ .......................................................................10
+2.1. LÝ THUYẾT CƠ SỞ DỮ LIỆU ......................................................................10
+
+2.1.1. Ưu điểm ......................................................................................................10
+2.1.2. Nhược điểm ................................................................................................10
+2.1.3. Tính chất .....................................................................................................11
+2.1.4. Phân loại .....................................................................................................11
+2.2. HỆ QUẢN TRỊ CƠ SỞ DỮ LIỆU MYSQL ...................................................11
+2.3. PHÂN TÍCH THIẾT KẾ HƯỚNG ĐỐI TƯỢNG – UML ............................12
+2.3.1. Khái niệm OOAD ......................................................................................12
+2.3.2. Khái niệm UML .........................................................................................13
+2.3.3. Các ký hiệu và mô hình cơ bản ...................................................................15
+2.4. MỤC ĐÍCH VÀ YÊU CẦU PHÂN TÍCH THIẾT KẾ HỆ THỐNG .............15
+CHƯƠNG 3: NỘI DUNG THỰC HIỆN ...............................................................16
+3.1. KHẢO SÁT THỰC TẾ ....................................................................................16
+
+3.1.1. Các tác nghiệp chính .................................................................................16
+3.2. MÔ TẢ NGHIỆP VỤ HỆ THỐNG ................................................................16
+3.3. SƠ ĐỒ CHỨC NĂNG TỔNG QUÁT CỦA HỆ THỐNG ..............................17
+3.4. SƠ ĐỒ USE CASE ..........................................................................................18
+3.4.1. Use case tổng quát .....................................................................................18
+3.4.2. Use case Quản lý sinh viên ........................................................................19
+3.4.3. Use case Quản lý lớp học ..........................................................................20
+3.4.4. Use case Quản lý môn học .........................................................................21
+3.4.5. Use case Quản lý điểm ...............................................................................22
+3.5. ĐẶC TẢ NGHIỆP VỤ .....................................................................................24
+3.6. SƠ ĐỒ SEQUENCE ........................................................................................28
+3.6.1. Sequence thêm mới sinh viên ....................................................................28
+3.6.2. Sequence cập nhật điểm ............................................................................29
+3.6.3. Sequence quản lý lớp học .........................................................................30
+3.7. CLASS DIAGRAM HỆ THỐNG QUẢN LÝ SINH VIÊN ..........................31
+3.8. ĐẶC TẢ DỮ LIỆU ..........................................................................................34
+3.8.1. Sinh viên ....................................................................................................34
+3.8.2. Lớp học .......................................................................................................35
+3.8.3. Môn học ......................................................................................................35
+3.8.4. Điểm số ......................................................................................................35
+3.9. SƠ ĐỒ ACTIVITY DIAGRAM TỔNG QUÁT ............................................37
+CHƯƠNG 4: KẾT QUẢ NGHIÊN CỨU, HƯỚNG PHÁT TRIỂN VÀ KẾT LUẬN ....39
+4.1. KẾT QUẢ NGHIÊN CỨU ...............................................................................39
+
+4.1.1. Giao diện và chức năng chính ....................................................................39
+4.1.2. Kết quả đạt được ........................................................................................42
+4.2. HƯỚNG PHÁT TRIỂN ...................................................................................43
+4.3. KẾT LUẬN .......................................................................................................44
+TÀI LIỆU THAM KHẢO .......................................................................................46
+DANH MỤC CÁC HÌNH .......................................................................................47
+DANH MỤC BẢNG ...............................................................................................48 -->
+
 # CHƯƠNG 1: TỔNG QUAN
 
 ## 1.1. LÝ DO CHỌN ĐỀ TÀI
@@ -207,3 +266,659 @@
    - Hệ thống có khả năng xử lý nhanh chóng với lượng lớn dữ liệu.
 
 ---
+
+# CHƯƠNG 3: NỘI DUNG THỰC HIỆN
+
+## 3.1. KHẢO SÁT THỰC TẾ
+
+### 3.1.1. Mục tiêu khảo sát
+- Nhằm xác định các yêu cầu cần thiết cho hệ thống quản lý sinh viên, chúng tôi đã tiến hành khảo sát thực tế tại một số trường đại học. Mục tiêu chính bao gồm:
+	- Hiểu rõ quy trình quản lý sinh viên hiện tại.
+	- Xác định các khó khăn, hạn chế trong quản lý.
+	- Thu thập yêu cầu từ người dùng cuối (cán bộ quản lý, giảng viên, sinh viên).
+
+### 3.1.2. Kết quả khảo sát
+- Quy trình quản lý sinh viên hiện tại chủ yếu bao gồm các hoạt động:
+1. **Quản lý thông tin sinh viên:**  
+   - Cập nhật thông tin cá nhân: mã sinh viên, họ tên, ngày sinh, địa chỉ.  
+   - Lưu trữ hồ sơ học tập (điểm số, xếp loại, kết quả tốt nghiệp).  
+
+2. **Quản lý lớp học:**  
+   - Phân bổ sinh viên vào các lớp học.  
+   - Theo dõi danh sách sinh viên từng lớp.  
+
+3. **Quản lý môn học:**  
+   - Tạo danh sách môn học, số tín chỉ.  
+   - Đăng ký môn học cho sinh viên.  
+
+4. **Quản lý điểm số:**  
+   - Ghi nhận và lưu trữ điểm thi từng môn học.  
+   - Tính điểm trung bình, phân loại học lực.
+
+**Những khó khăn hiện tại:**
+- Quản lý dữ liệu phân tán, thiếu sự đồng bộ.
+- Khó khăn trong việc tìm kiếm, thống kê dữ liệu.
+- Dễ xảy ra sai sót khi nhập liệu thủ công.
+
+---
+
+## 3.2. MÔ TẢ NGHIỆP VỤ
+
+### 3.2.1. Sơ đồ chức năng tổng quát
+- Hệ thống quản lý sinh viên được chia thành 4 chức năng chính:
+    1. **Quản lý sinh viên:** Quản lý thông tin cá nhân và hồ sơ học tập của sinh viên.
+    2. **Quản lý lớp học:** Tổ chức và theo dõi thông tin các lớp học.
+    3. **Quản lý môn học:** Xây dựng và cập nhật thông tin các môn học.
+    4. **Quản lý điểm số:** Lưu trữ và xử lý kết quả học tập.
+
+![image](https://hackmd.io/_uploads/H1znUXofkx.png)
+
+![image](https://hackmd.io/_uploads/H1KbdLofyl.png)
+
+## 3.3. SƠ ĐỒ USE CASE
+
+### 3.3.1. Use Case tổng quát
+- Use Case tổng quát thể hiện các chức năng chính của hệ thống và mối quan hệ giữa người dùng và hệ thống.
+
+![image](https://hackmd.io/_uploads/BJeouIjz1e.png)
+
+
+
+- **Bảng mô tả Use Case tổng quát:**
+
+| **Tên Use Case**         | **Quản lý sinh viên**                           |
+|--------------------------|-----------------------------------------------|
+| **Mô tả**               | Người dùng thực hiện các chức năng liên quan đến quản lý sinh viên. |
+| **Tác nhân chính**       | Quản trị viên hệ thống, cán bộ quản lý.        |
+| **Luồng sự kiện chính** | 1. Người dùng đăng nhập vào hệ thống.<br> 2. Truy cập module quản lý sinh viên.<br>3. Thêm, sửa, xóa hoặc tra cứu thông tin sinh viên. |
+
+---
+
+### 3.3.2. Use Case quản lý sinh viên
+- Sơ đồ use case:
+
+![image](https://hackmd.io/_uploads/SJU9YUoG1l.png)
+    
+**Bảng mô tả chi tiết Use Case "Quản lý sinh viên":**
+
+| **Tên Use Case**         | **Quản lý sinh viên**                           |
+|--------------------------|-----------------------------------------------|
+| **Mô tả**               | Quản trị viên có thể thêm, sửa, xóa và tra cứu thông tin sinh viên. |
+| **Tác nhân chính**       | Quản trị viên hệ thống.                        |
+| **Luồng sự kiện chính** | 1. Quản trị viên đăng nhập vào hệ thống.<br>2. Chọn module quản lý sinh viên.<br>3. Thực hiện thao tác (thêm/sửa/xóa/tra cứu).<br>4. Xác nhận và lưu thay đổi. |
+
+---
+
+### 3.3.3. Use Case quản lý lớp học
+- Sơ đồ use case:
+
+![image](https://hackmd.io/_uploads/SkbE9LsM1l.png)
+
+- Mô tả sơ đồ:
+    - Tác nhân (Actors):
+
+        - Quản trị viên hệ thống (Admin): Người quản lý toàn bộ dữ liệu lớp học.
+        - Cán bộ quản lý (Manager): Người thực hiện các thao tác trên module quản lý lớp học.
+- Các Use Case (Chức năng):
+
+    - Thêm lớp học: Tạo mới thông tin lớp học, bao gồm mã lớp, tên lớp, và danh sách sinh viên.
+    - Sửa thông tin lớp học: Cập nhật thông tin về lớp học (như tên lớp hoặc danh sách sinh viên).
+    - Xóa lớp học: Loại bỏ lớp học không còn cần thiết trong hệ thống.
+    - Tra cứu thông tin lớp học: Tìm kiếm lớp học dựa trên các tiêu chí như mã lớp hoặc tên lớp.
+
+### 3.3.4. Use Case quản lý môn học
+- Sơ đồ use case:
+
+![image](https://hackmd.io/_uploads/r14MoUjzJe.png)
+
+### 3.3.5. Use Case quản lý điểm số
+- Sơ đồ use case:
+
+![image](https://hackmd.io/_uploads/S1pBi8oMyl.png)
+
+## 3.4. SƠ ĐỒ SEQUENCE (TUẦN TỰ)
+
+### 3.4.1. Module quản lý sinh viên
+- Tổng quát ta sẽ có sơ đồ sau:
+
+![image](https://hackmd.io/_uploads/HyquaUiM1e.png)
+- Chi tiết từng chức năng thì ta có các sơ đồ sau:
+    - **Sequence Diagram: Thêm sinh viên**
+
+![image](https://hackmd.io/_uploads/S1GD38sfkg.png)
+    - **Sequence Diagram: Sửa thông tin sinh viên**
+
+![image](https://hackmd.io/_uploads/Sy8KnUoGkx.png)
+    - **Sequence Diagram: Xóa sinh viên**
+
+![image](https://hackmd.io/_uploads/S1Ho2IjzJl.png)
+    - **Sequence Diagram: Tra cứu thông tin sinh viên**
+    
+![image](https://hackmd.io/_uploads/H1FTnIif1x.png)
+
+### 3.4.2. Module quản lý lớp học
+- Sơ đồ tuần tự:
+
+![image](https://hackmd.io/_uploads/HyF6ALjM1x.png)
+
+### 3.4.3. Module quản lý môn học
+- Sơ đồ tuần tự:
+
+![image](https://hackmd.io/_uploads/ByQ8kDifkx.png)
+
+### 3.4.4. Module quản lý điểm số 
+- Sơ đồ tuần tự:
+
+![image](https://hackmd.io/_uploads/S1Q91vsGkg.png)
+
+### 3.4.5. Module đăng nhập và phân quyền
+- Sơ đồ tuần tự:
+
+![image](https://hackmd.io/_uploads/H1yRJDif1x.png)
+
+### 3.4.6. Module báo cáo và thống kê
+- Sơ đồ tuần tự:
+
+![image](https://hackmd.io/_uploads/ryAexwjM1x.png)
+
+---
+
+## 3.5. CLASS DIAGRAM
+
+- Class Diagram thể hiện cấu trúc của hệ thống, bao gồm các lớp, thuộc tính, phương thức và mối quan hệ giữa chúng.
+- Tổng quát ta sẽ có sơ đồ sau:
+
+![image](https://hackmd.io/_uploads/SyFCxvjf1g.png)
+
+- Với từng module ta có từng sơ đồ như sau.
+
+### 3.5.1 Module Quản lý Sinh viên
+
+- Sơ đồ lớp **Quản lý Sinh viên**.
+
+![image](https://hackmd.io/_uploads/HkFX-wizkx.png)
+
+### 3.5.2 Module Quản lý Lớp Học
+- Sơ đồ lớp **Quản lý Lớp Học**.
+
+![image](https://hackmd.io/_uploads/r1HvbwozJl.png)
+
+### 3.5.3 Module Quản lý Môn Học
+- Sơ đồ lớp **Module Quản lý Môn Học**.
+
+![image](https://hackmd.io/_uploads/SkMsWwifJx.png)
+### 3.5.4 Module Quản lý Điểm Số
+- Sơ đồ lớp **Module Quản lý Điểm Số**.
+
+![image](https://hackmd.io/_uploads/Syga-viGyg.png)
+### 3.5.5 Module Đăng Nhập và Phân Quyền
+- Sơ đồ lớp **Module Đăng Nhập và Phân Quyền**.
+
+![image](https://hackmd.io/_uploads/Sk-kGvoMke.png)
+
+---
+
+## 3.6 Đặc tả dữ liệu
+
+- Đặc tả dữ liệu là phần quan trọng trong thiết kế hệ thống, giúp xác định cấu trúc, kiểu dữ liệu, và mối quan hệ giữa các bảng trong cơ sở dữ liệu (CSDL).
+
+---
+
+### 3.6.1. Bảng Sinh viên (Student)
+
+#### Mục đích:
+- Lưu trữ thông tin cá nhân của sinh viên.
+
+##### Cấu trúc bảng:
+
+| **Tên cột**   | **Kiểu dữ liệu**  | **Mô tả**                                |
+|---------------|-------------------|------------------------------------------|
+| `MaSV`        | `VARCHAR(10)`    | Mã sinh viên (khóa chính).              |
+| `HoTen`       | `VARCHAR(100)`   | Họ và tên sinh viên.                    |
+| `NgaySinh`    | `DATE`           | Ngày sinh.                              |
+| `GioiTinh`    | `VARCHAR(10)`    | Giới tính (Nam/Nữ).                     |
+| `DiaChi`      | `VARCHAR(200)`   | Địa chỉ liên hệ.                        |
+| `MaLop`       | `VARCHAR(10)`    | Mã lớp (khóa ngoại, liên kết với bảng Lớp học). |
+
+---
+
+### 3.6.2. Bảng Lớp học (Class)
+
+#### Mục đích:
+- Quản lý thông tin các lớp học.
+
+#### Cấu trúc bảng:
+
+| **Tên cột**   | **Kiểu dữ liệu**  | **Mô tả**                                |
+|---------------|-------------------|------------------------------------------|
+| `MaLop`       | `VARCHAR(10)`    | Mã lớp học (khóa chính).                |
+| `TenLop`      | `VARCHAR(50)`    | Tên lớp học.                            |
+| `Khoa`        | `VARCHAR(50)`    | Khoa hoặc ngành học.                    |
+
+---
+
+### 3.6.3. Bảng Môn học (Subject)
+
+#### Mục đích:
+- Lưu thông tin về các môn học.
+
+#### Cấu trúc bảng:
+
+| **Tên cột**   | **Kiểu dữ liệu**  | **Mô tả**                                |
+|---------------|-------------------|------------------------------------------|
+| `MaMon`       | `VARCHAR(10)`    | Mã môn học (khóa chính).                |
+| `TenMon`      | `VARCHAR(100)`   | Tên môn học.                            |
+| `SoTinChi`    | `INT`            | Số tín chỉ của môn học.                 |
+
+---
+
+### 3.6.4. Bảng Điểm (Grade)
+
+#### Mục đích:
+- Lưu trữ kết quả học tập của sinh viên.
+
+#### Cấu trúc bảng:
+
+| **Tên cột**   | **Kiểu dữ liệu**  | **Mô tả**                                |
+|---------------|-------------------|------------------------------------------|
+| `MaSV`        | `VARCHAR(10)`    | Mã sinh viên (khóa ngoại, liên kết với bảng Sinh viên). |
+| `MaMon`       | `VARCHAR(10)`    | Mã môn học (khóa ngoại, liên kết với bảng Môn học). |
+| `DiemThi`     | `FLOAT`          | Điểm thi của sinh viên.                 |
+| `DiemTB`      | `FLOAT`          | Điểm trung bình môn.                    |
+
+---
+
+### 3.6.5. Bảng Người dùng (User)
+
+#### Mục đích:
+Quản lý thông tin tài khoản đăng nhập.
+
+#### Cấu trúc bảng:
+
+| **Tên cột**   | **Kiểu dữ liệu**  | **Mô tả**                                |
+|---------------|-------------------|------------------------------------------|
+| `Username`    | `VARCHAR(50)`    | Tên đăng nhập (khóa chính).             |
+| `Password`    | `VARCHAR(100)`   | Mật khẩu (được mã hóa).                 |
+| `Role`        | `VARCHAR(20)`    | Quyền hạn (Quản trị viên/Cán bộ quản lý). |
+
+---
+
+### 3.6.6. Bảng Thống kê/Báo cáo (Report)
+
+#### Mục đích:
+- Lưu dữ liệu tạm thời để tạo báo cáo hoặc thống kê.
+
+#### Cấu trúc bảng:
+
+| **Tên cột**   | **Kiểu dữ liệu**  | **Mô tả**                                |
+|---------------|-------------------|------------------------------------------|
+| `MaSV`        | `VARCHAR(10)`    | Mã sinh viên.                           |
+| `MaLop`       | `VARCHAR(10)`    | Mã lớp học.                             |
+| `MaMon`       | `VARCHAR(10)`    | Mã môn học.                             |
+| `DiemThi`     | `FLOAT`          | Điểm thi.                               |
+| `DiemTB`      | `FLOAT`          | Điểm trung bình môn.                    |
+
+---
+
+### Mối quan hệ giữa các bảng
+
+- Dưới đây là sơ đồ mối quan hệ **(ERD - Entity Relationship Diagram)**:
+
+![image](https://hackmd.io/_uploads/Bk2z8wjM1e.png)
+
+## 3.7 Biểu đồ cộng tác
+### 3.7.1. Biểu đồ cộng tác: Quản lý Sinh Viên
+a. Thêm Sinh Viên
+- Mô tả:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Thêm sinh viên".
+	- Hệ thống hiển thị form để nhập thông tin sinh viên.
+	- Quản trị viên điền các thông tin (Mã sinh viên, Họ tên, Ngày sinh, Giới tính, Địa chỉ, Mã lớp) và nhấn "Lưu".
+    - Hệ thống kiểm tra thông tin hợp lệ:
+		- Nếu hợp lệ: Tiến hành lưu dữ liệu vào cơ sở dữ liệu.
+		- Nếu không hợp lệ: Hiển thị lỗi và yêu cầu sửa thông tin.
+	- Sau khi lưu thành công, hệ thống thông báo hoàn tất.
+
+![image](https://hackmd.io/_uploads/B1QTytsG1g.png)
+
+b. Tra cứu Sinh Viên
+- Mô tả:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Tra cứu sinh viên".
+	- Hệ thống hiển thị form để nhập tiêu chí tìm kiếm (Mã sinh viên, Tên sinh viên, Lớp học).
+    - Quản trị viên nhập tiêu chí và nhấn "Tìm kiếm".
+    - Hệ thống truy vấn dữ liệu trong cơ sở dữ liệu và trả về danh sách kết quả.
+    - Kết quả hiển thị cho quản trị viên.
+
+![image](https://hackmd.io/_uploads/rJ_01tsMyg.png)
+
+### 3.7.2. Biểu đồ cộng tác: Quản lý Lớp Học
+a. Thêm Lớp Học
+- Mô tả:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Thêm lớp học".
+	- Hệ thống hiển thị form để nhập thông tin lớp học (Mã lớp, Tên lớp, Khoa).
+    - Quản trị viên điền thông tin và nhấn "Lưu".
+	- Hệ thống kiểm tra dữ liệu:
+		- Nếu hợp lệ: Tiến hành lưu vào cơ sở dữ liệu.
+		- Nếu không hợp lệ: Yêu cầu quản trị viên sửa thông tin.
+    - Sau khi lưu thành công, hệ thống thông báo hoàn tất.
+
+![image](https://hackmd.io/_uploads/Sy7extiGyg.png)
+
+b. Tra cứu Lớp Học
+- Mô tả:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Tra cứu lớp học".
+	- Hệ thống hiển thị form nhập tiêu chí tìm kiếm (Mã lớp, Tên lớp, Khoa).
+    - Quản trị viên nhập tiêu chí và nhấn "Tìm kiếm".
+	- Hệ thống truy vấn cơ sở dữ liệu và trả về danh sách kết quả.
+	- Hệ thống hiển thị danh sách lớp học phù hợp.
+
+![image](https://hackmd.io/_uploads/HkuZltiGJl.png)
+
+### 3.7.3. Biểu đồ cộng tác: Đăng Nhập và Phân Quyền
+a. Đăng Nhập
+- Mô tả:
+    - Người dùng nhập tài khoản và mật khẩu vào hệ thống.
+    - Hệ thống kiểm tra thông tin đăng nhập trong cơ sở dữ liệu:
+		- Nếu hợp lệ: Xác nhận đăng nhập và phân quyền.
+		- Nếu không hợp lệ: Hiển thị thông báo lỗi.
+    - Hệ thống hiển thị giao diện phù hợp với quyền hạn (Quản trị viên hoặc Cán bộ quản lý).
+
+![image](https://hackmd.io/_uploads/rkwzgYofkx.png)
+
+### 3.7.4. Biểu đồ cộng tác: Quản lý Môn Học
+a. Thêm môn học
+- Mô tả:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Thêm môn học".
+	- Hệ thống hiển thị form nhập thông tin môn học (Mã môn, Tên môn, Số tín chỉ).
+	- Quản trị viên điền thông tin và nhấn "Lưu".
+	- Hệ thống kiểm tra dữ liệu:
+		- Nếu hợp lệ: Tiến hành lưu vào cơ sở dữ liệu.
+    	- Nếu không hợp lệ: Yêu cầu quản trị viên sửa thông tin.
+    - Sau khi lưu thành công, hệ thống thông báo hoàn tất.
+
+![image](https://hackmd.io/_uploads/SJI7lFjMJl.png)
+
+b. Tra cứu môn học
+- Mô tả:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Tra cứu môn học".
+	- Hệ thống hiển thị form nhập tiêu chí tìm kiếm (Mã môn, Tên môn, Số tín chỉ).
+    - Quản trị viên nhập tiêu chí và nhấn "Tìm kiếm".
+	- Hệ thống truy vấn cơ sở dữ liệu và trả về danh sách kết quả.
+	- Hệ thống hiển thị danh sách môn học phù hợp.
+
+![image](https://hackmd.io/_uploads/Bkv4xtizke.png)
+
+### 3.7.5. Biểu đồ cộng tác: Quản lý Điểm Số
+a. Nhập điểm
+- Mô tả:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Nhập điểm".
+	- Hệ thống hiển thị form nhập thông tin điểm số (Mã SV, Mã môn, Điểm thi).
+	- Quản trị viên nhập điểm và nhấn "Lưu".
+	- Hệ thống kiểm tra dữ liệu:
+		- Nếu hợp lệ: Lưu vào cơ sở dữ liệu.
+		- Nếu không hợp lệ: Yêu cầu quản trị viên chỉnh sửa.
+	- Sau khi lưu thành công, hệ thống thông báo hoàn tất.
+
+![image](https://hackmd.io/_uploads/Sk7SetsMkl.png)
+
+### 3.7.6. Biểu đồ cộng tác: Báo Cáo và Thống Kê
+a. Tạo báo cáo kết quả học tập
+- Mô tả:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Tạo báo cáo".
+	- Hệ thống hiển thị form nhập tiêu chí báo cáo (Mã lớp, Mã môn, hoặc kỳ học).
+	- Quản trị viên nhập tiêu chí và nhấn "Tạo báo cáo".
+	- Hệ thống truy vấn dữ liệu và xử lý báo cáo.
+	- Hệ thống hiển thị kết quả báo cáo hoặc cho phép tải xuống file.
+
+![image](https://hackmd.io/_uploads/H10IxFiG1e.png)
+
+## 3.8 Biểu đồ trạng thái
+### 3.8.1. Biểu đồ trạng thái cho Sinh Viên
+- Mô tả:
+    - Biểu đồ trạng thái này mô tả các giai đoạn trạng thái của một sinh viên trong hệ thống từ lúc được thêm vào đến khi hoàn thành chương trình học hoặc bảo lưu.
+
+- Các trạng thái:
+	- Chưa đăng ký: Sinh viên chưa có trong hệ thống.
+	- Đã đăng ký: Sinh viên được thêm vào hệ thống và thuộc một lớp học.
+	- Đang học: Sinh viên đã đăng ký các môn học.
+	- Bảo lưu: Sinh viên tạm dừng chương trình học.
+	- Tốt nghiệp: Sinh viên hoàn thành chương trình học.
+
+![image](https://hackmd.io/_uploads/rJW_eYozkg.png)
+
+### 3.8.2. Biểu đồ trạng thái cho Lớp Học
+- Mô tả:
+    - Mô tả các trạng thái của một lớp học từ khi được khởi tạo đến khi kết thúc.
+
+- Các trạng thái:
+	- Chưa khởi tạo: Lớp học chưa được thêm vào hệ thống.
+	- Đang hoạt động: Lớp học đang diễn ra và có sinh viên tham gia.
+	- Hoàn thành: Lớp học đã kết thúc.
+
+![image](https://hackmd.io/_uploads/HJgYlYjGkg.png)
+
+### 3.8.3. Biểu đồ trạng thái cho Môn Học
+- Mô tả:
+    - Mô tả các trạng thái của một môn học trong hệ thống từ lúc khởi tạo đến khi hoàn thành hoặc bị hủy bỏ.
+
+- Các trạng thái:
+	- Chưa khởi tạo: Môn học chưa được thêm vào hệ thống.
+	- Đang hoạt động: Môn học đang được giảng dạy.
+	- Hoàn thành: Môn học đã kết thúc.
+	- Hủy bỏ: Môn học bị hủy bỏ.
+
+![image](https://hackmd.io/_uploads/r1mqxKiMyl.png)
+
+### 3.8.4. Biểu đồ trạng thái cho Điểm Số
+- Mô tả:
+    - Mô tả các trạng thái của điểm số từ lúc chưa được nhập vào hệ thống đến khi xác nhận hoàn tất.
+
+- Các trạng thái:
+	- Chưa nhập: Điểm số chưa được thêm vào hệ thống.
+	- Đã nhập: Điểm số được nhập vào hệ thống nhưng chưa duyệt.
+	- Chỉnh sửa: Điểm số được cập nhật.
+	- Xác nhận: Điểm số đã được xác nhận và lưu cố định.
+
+![image](https://hackmd.io/_uploads/HkEoxtjzJl.png)
+
+### 3.8.5. Biểu đồ trạng thái cho Người Dùng (Đăng nhập và Phân quyền)
+- Mô tả:
+    - Mô tả các trạng thái của một người dùng khi tương tác với hệ thống, bao gồm các trạng thái từ đăng nhập đến đăng xuất.
+
+- Các trạng thái:
+	- Chưa đăng nhập: Người dùng chưa truy cập vào hệ thống.
+	- Đã đăng nhập: Người dùng đã được xác thực và phân quyền.
+	- Hết phiên: Phiên làm việc của người dùng đã kết thúc do đăng xuất hoặc hết thời gian.
+
+![image](https://hackmd.io/_uploads/rkz3eKiMJx.png)
+
+### 3.8.6. Biểu đồ trạng thái cho Báo Cáo
+- Mô tả:
+    - Mô tả các trạng thái của một báo cáo từ khi được yêu cầu đến khi hoàn thành hoặc bị hủy.
+
+- Các trạng thái:
+	- Chưa tạo: Báo cáo chưa được yêu cầu.
+	- Đang tạo: Báo cáo đang được xử lý và tổng hợp dữ liệu.
+	- Hoàn thành: Báo cáo đã được tạo xong và hiển thị/tải về.
+	- Hủy: Quá trình tạo báo cáo bị hủy do lỗi hoặc yêu cầu từ người dùng.
+
+![image](https://hackmd.io/_uploads/HyGpltjMye.png)
+
+### 3.8.7. Biểu đồ trạng thái cho Hệ Thống
+- Mô tả:
+    - Mô tả trạng thái tổng quát của hệ thống từ lúc khởi động đến khi hoạt động hoặc bảo trì.
+
+- Các trạng thái:
+	- Khởi động: Hệ thống đang khởi chạy.
+	- Chạy: Hệ thống hoạt động bình thường.
+	- Đang bảo trì: Hệ thống đang được bảo trì hoặc cập nhật.
+	- Ngừng hoạt động: Hệ thống tạm dừng hoạt động.
+
+![image](https://hackmd.io/_uploads/S1vRxYoGyx.png)
+
+## 3.9 Biều đồ hoạt động
+### 3.9.1. Biểu đồ hoạt động: Thêm Sinh Viên
+- Mô tả quy trình:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Thêm sinh viên".
+	- Hệ thống hiển thị form để nhập thông tin sinh viên.
+	- Quản trị viên điền thông tin cần thiết và nhấn "Lưu".
+	- Hệ thống kiểm tra dữ liệu:
+	    - Nếu hợp lệ: Thông tin được lưu vào cơ sở dữ liệu và hiển thị thông báo thành công.
+	    - Nếu không hợp lệ: Hiển thị lỗi và yêu cầu nhập lại.
+
+![image](https://hackmd.io/_uploads/SJI1ZYjG1e.png)
+
+### 3.9.2. Biểu đồ hoạt động: Sửa Thông Tin Sinh Viên
+- Mô tả quy trình:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Sửa thông tin sinh viên".
+	- Hệ thống hiển thị danh sách sinh viên.
+	- Quản trị viên chọn sinh viên cần chỉnh sửa.
+	- Hệ thống hiển thị thông tin chi tiết của sinh viên.
+	- Quản trị viên chỉnh sửa thông tin và nhấn "Lưu".
+	- Hệ thống kiểm tra thông tin:
+	    - Nếu hợp lệ: Cập nhật vào cơ sở dữ liệu và thông báo thành công.
+	    - Nếu không hợp lệ: Hiển thị lỗi và yêu cầu chỉnh sửa lại.
+
+![image](https://hackmd.io/_uploads/H19xZFizyg.png)
+
+### 3.9.3. Biểu đồ hoạt động: Xóa Sinh Viên
+- Mô tả quy trình:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Xóa sinh viên".
+	- Hệ thống hiển thị danh sách sinh viên.
+	- Quản trị viên chọn sinh viên cần xóa.
+	- Hệ thống hiển thị cảnh báo xác nhận xóa.
+	- Quản trị viên xác nhận:
+	    - Nếu đồng ý: Hệ thống xóa thông tin khỏi cơ sở dữ liệu và hiển thị thông báo thành công.
+        - Nếu không đồng ý: Hủy thao tác và quay lại danh sách sinh viên.
+
+![image](https://hackmd.io/_uploads/SkjbbFoGJl.png)
+
+### 3.9.4. Biểu đồ hoạt động: Tra Cứu Sinh Viên
+- Mô tả quy trình:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Tra cứu sinh viên".
+	- Hệ thống hiển thị form nhập tiêu chí tìm kiếm.
+	- Quản trị viên nhập tiêu chí (Mã SV, Tên SV, Lớp học, ...).
+	- Hệ thống truy vấn cơ sở dữ liệu.
+	- Hiển thị danh sách kết quả phù hợp cho quản trị viên.
+
+![image](https://hackmd.io/_uploads/HJKfZKozyl.png)
+
+### 3.9.5. Biểu đồ hoạt động: Thêm Lớp Học
+- Mô tả quy trình:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Thêm lớp học".
+	- Hệ thống hiển thị form nhập thông tin lớp học.
+	- Quản trị viên điền thông tin cần thiết (Mã lớp, Tên lớp, Khoa).
+	- Hệ thống kiểm tra dữ liệu:
+	    - Nếu hợp lệ: Lưu thông tin vào cơ sở dữ liệu và thông báo thành công.
+        - Nếu không hợp lệ: Hiển thị lỗi và yêu cầu chỉnh sửa.
+
+![image](https://hackmd.io/_uploads/HkUmWFizJx.png)
+
+### 3.9.6. Biểu đồ hoạt động: Sửa Thông Tin Lớp Học
+- Mô tả quy trình:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Sửa thông tin lớp học".
+	- Hệ thống hiển thị danh sách lớp học.
+	- Quản trị viên chọn lớp học cần sửa.
+	- Hệ thống hiển thị thông tin chi tiết.
+	- Quản trị viên chỉnh sửa thông tin và nhấn "Lưu".
+	- Hệ thống kiểm tra thông tin:
+	    - Nếu hợp lệ: Cập nhật vào cơ sở dữ liệu và thông báo thành công.
+	    - Nếu không hợp lệ: Hiển thị lỗi và yêu cầu sửa lại.
+
+![image](https://hackmd.io/_uploads/Sk2Y8YoMyg.png)
+
+
+### 3.9.7. Biểu đồ hoạt động: Nhập Điểm
+- Mô tả quy trình:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Nhập điểm".
+	- Hệ thống hiển thị form nhập điểm (Mã sinh viên, Mã môn, Điểm thi).
+    - Quản trị viên nhập thông tin và nhấn "Lưu".
+	- Hệ thống kiểm tra dữ liệu:
+	    - Nếu hợp lệ: Lưu thông tin vào cơ sở dữ liệu và thông báo thành công.
+        - Nếu không hợp lệ: Hiển thị lỗi và yêu cầu chỉnh sửa.
+
+![image](https://hackmd.io/_uploads/HktSbYoM1x.png)
+
+### 3.9.8. Biểu đồ hoạt động: Tạo Báo Cáo
+- Mô tả quy trình:
+	- Quản trị viên đăng nhập vào hệ thống.
+	- Chọn chức năng "Tạo báo cáo".
+	- Nhập tiêu chí báo cáo (Lớp học, Môn học, Kỳ học).
+	- Hệ thống truy vấn cơ sở dữ liệu và xử lý dữ liệu.
+	- Hệ thống tạo báo cáo.
+	- Hiển thị báo cáo hoặc cung cấp file tải xuống.
+
+![image](https://hackmd.io/_uploads/rJ9U-tsMJe.png)
+
+### 3.9.9. Biểu đồ hoạt động: Đăng Nhập và Phân Quyền
+- Mô tả quy trình:
+    - Người dùng nhập tài khoản và mật khẩu.
+    - Hệ thống kiểm tra thông tin đăng nhập:
+        - Nếu hợp lệ: Phân quyền truy cập (Quản trị viên hoặc Người dùng thông thường).
+        - Nếu không hợp lệ: Hiển thị thông báo lỗi.
+    - Hệ thống hiển thị giao diện phù hợp với vai trò.
+    - 
+![image](https://hackmd.io/_uploads/S12wbKszJx.png)
+
+## 3.10 Lý thuyết về Sơ đồ ERD (Entity-Relationship Diagram)
+### 3.10.1. Sơ đồ ERD là gì?
+
+- Sơ đồ ERD (Entity-Relationship Diagram) là một công cụ trực quan dùng để biểu diễn mô hình dữ liệu logic của hệ thống.
+Nó mô tả các thực thể (entities), thuộc tính (attributes) của các thực thể, và mối quan hệ (relationships) giữa chúng.
+### 3.10.2. Thành phần chính của Sơ đồ ERD
+
+- Thực thể (Entity):
+
+    - Là một đối tượng, sự vật, hoặc khái niệm có thể nhận dạng được trong hệ thống.
+    - Ví dụ: Sinh viên, Lớp học, Môn học.
+- Thuộc tính (Attribute):
+
+    - Là các thông tin mô tả đặc điểm của một thực thể hoặc mối quan hệ.
+    - Ví dụ: Mã sinh viên, Họ tên, Ngày sinh là các thuộc tính của thực thể Sinh viên.
+- Khóa chính (Primary Key):
+
+    - Là thuộc tính hoặc tập hợp thuộc tính dùng để xác định duy nhất một thực thể.
+    - Ví dụ: MaSV là khóa chính của thực thể Sinh viên.
+- Mối quan hệ (Relationship):
+
+	- Biểu diễn mối liên kết giữa các thực thể trong hệ thống.
+	- Ví dụ: Sinh viên thuộc Lớp học, Môn học liên quan đến Điểm số.
+- Bậc của mối quan hệ:
+
+    - 1:1 (One-to-One): Một thực thể trong tập này liên kết với duy nhất một thực thể trong tập kia.
+    - 1:n (One-to-Many): Một thực thể trong tập này liên kết với nhiều thực thể trong tập kia.
+    - n:n (Many-to-Many): Nhiều thực thể trong tập này liên kết với nhiều thực thể trong tập kia.
+
+### 3.10.3 Sơ đồ ERD cho Hệ thống Quản lý Sinh Viên
+- Đây là các thực thể và mối quan hệ cần thiết:
+
+    - Thực thể chính:
+        - **Sinh viên (Student)**:
+            - MaSV (PK), HoTen, NgaySinh, GioiTinh, DiaChi, MaLop.
+        - **Lớp học (Class)**:
+            - MaLop (PK), TenLop, Khoa.
+        - **Môn học (Subject)**:
+            - MaMon (PK), TenMon, SoTinChi.
+        - **Điểm (Grade)**:
+
+            - MaSV (FK), MaMon (FK), DiemThi, DiemTB.
+        - **Người dùng (User)**:
+
+            - Username (PK), Password, Role.
+
+![image](https://hackmd.io/_uploads/SkcY-tofke.png)
+    
