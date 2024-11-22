@@ -444,6 +444,7 @@ DANH MỤC BẢNG ..............................................................
 ![image](https://hackmd.io/_uploads/r1HvbwozJl.png)
 
 ### 3.5.3 Module Quản lý Môn Học
+
 - Sơ đồ lớp **Module Quản lý Môn Học**.
 
 ![image](https://hackmd.io/_uploads/SkMsWwifJx.png)
