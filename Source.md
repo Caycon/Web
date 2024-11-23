@@ -265,6 +265,85 @@ DANH MỤC BẢNG ..............................................................
 4. **Tính hiệu quả:**  
    - Hệ thống có khả năng xử lý nhanh chóng với lượng lớn dữ liệu.
 
+## 2.5. Công cụ sử dụng
+- Công cụ tiếp thông tin : **GOOGLE**.
+- Công cụ uml: [**plantuml**](https://www.plantuml.com/plantuml/duml/SoWkIImgAStDuNBAJrBGjLDmpCbCJbMmKiX8pSd9vt98pKi1IW80)
+
+### 2.5.1. PlantUML
+- PlantUML là một công cụ hỗ trợ vẽ các loại biểu đồ UML, hoạt động dựa trên việc mô tả cấu trúc của biểu đồ bằng mã nguồn văn bản. Thay vì sử dụng giao diện đồ họa, người dùng viết mã để định nghĩa các thành phần và mối quan hệ giữa chúng.
+
+### 2.5.2. Lý do mình dùng Plantuml
+- Dễ học và sử dụng: Chỉ cần hiểu cú pháp cơ bản, bạn có thể tạo ra các biểu đồ chuyên nghiệp.
+- Hỗ trợ nhiều loại biểu đồ: Bao gồm sơ đồ lớp (Class Diagram), sơ đồ trình tự (Sequence Diagram), sơ đồ trạng thái (State Diagram), sơ đồ hoạt động (Activity Diagram), và nhiều loại biểu đồ khác.
+- Tích hợp tốt: Có thể tích hợp với các IDE như IntelliJ, Eclipse, VS Code hoặc các công cụ như Doxygen, Markdown.
+- Mã nguồn có thể dễ dàng chia sẻ và chỉnh sửa: Vì biểu đồ được định nghĩa bằng văn bản, bạn có thể lưu trữ mã trong Git hoặc các hệ thống kiểm soát phiên bản khác.
+- Miễn phí và mã nguồn mở.
+### 2.5.3. Các loại biểu đồ được hỗ trợ
+- PlantUML hỗ trợ tạo nhiều loại biểu đồ UML và phi UML, bao gồm:
+
+    - Biểu đồ UML:
+		- Class Diagram (Sơ đồ lớp)
+		- Sequence Diagram (Sơ đồ trình tự)
+		- Activity Diagram (Sơ đồ hoạt động)
+		- State Diagram (Sơ đồ trạng thái)
+		- Use Case Diagram (Sơ đồ trường hợp sử dụng)
+		- Component Diagram (Sơ đồ thành phần)
+		- Deployment Diagram (Sơ đồ triển khai)
+    - Biểu đồ phi UML:
+		- Biểu đồ Gantt
+		- Biểu đồ WBS (Work Breakdown Structure)
+		- Biểu đồ dòng chảy dữ liệu (Data Flow Diagram)
+		- Wireframe Diagram (Biểu đồ giao diện người dùng)
+### 2.5.4. Cú pháp cơ bản
+- PlantUML sử dụng một ngôn ngữ có cú pháp đơn giản. Dưới đây là một số ví dụ:
+
+- Ví dụ 1: Sơ đồ lớp
+
+![image](https://hackmd.io/_uploads/r1fLjDkm1l.png)
+
+
+- Ví dụ 2: Sơ đồ trình tự
+
+![image](https://hackmd.io/_uploads/S16Ljw17ye.png)
+
+- Ví dụ 3: Sơ đồ hoạt động
+
+![image](https://hackmd.io/_uploads/rkPDjDJm1g.png)
+
+### 2.5.5. Công cụ hỗ trợ
+- Bạn có thể sử dụng PlantUML trên các nền tảng và công cụ sau:
+
+    - Trực tuyến:
+        - [**PlantText**](https://planttext.com/)
+        - [**PlantUML Editor**](https://www.planttext.com/)
+- Ngoại tuyến:
+	- **Tích hợp IDE:** Sử dụng plugin PlantUML cho IntelliJ, Eclipse, hoặc VS Code.
+	- **Command Line:** Cài đặt PlantUML trên máy tính và chạy bằng dòng lệnh.
+	- **Với Graphviz:** Để hỗ trợ kết xuất đồ họa phức tạp hơn.
+### 2.5.6. Ưu điểm và nhược điểm
+- Ưu điểm:
+	- Dễ dàng tích hợp với nhiều công cụ và quy trình phát triển phần mềm.
+	- Hỗ trợ nhiều loại biểu đồ và cú pháp dễ đọc.
+	- Nhẹ, không yêu cầu giao diện đồ họa phức tạp.
+	- Hoàn toàn miễn phí và có cộng đồng hỗ trợ lớn.
+- Nhược điểm:
+	- Cần phải học cú pháp nếu bạn chưa quen với mã hóa.
+	- Các biểu đồ phức tạp có thể trở nên khó đọc trong phần mã nguồn.
+### 2.5.7. Cài đặt
+- Yêu cầu:
+	- Java Runtime Environment (JRE).
+	- Graphviz (nếu cần biểu đồ phức tạp).
+- Cách cài đặt:
+	- Tải PlantUML:
+	- Tải file .jar từ trang chính thức.
+- Chạy PlantUML:
+    - Sử dụng dòng lệnh:
+```bash
+java -jar plantuml.jar example.txt
+
+```
+- Cài đặt plugin:
+    - Tích hợp với IDE như IntelliJ, Eclipse hoặc VS Code bằng cách cài đặt plugin tương ứng.
 ---
 
 # CHƯƠNG 3: NỘI DUNG THỰC HIỆN
@@ -313,107 +392,14 @@ DANH MỤC BẢNG ..............................................................
 
 ![image](https://hackmd.io/_uploads/H1znUXofkx.png)
 
-```plantuml
-@startuml
-package "Hệ thống quản lý sinh viên" {
-    package "Quản lý sinh viên" {
-        usecase "Thêm sinh viên"
-        usecase "Sửa thông tin sinh viên"
-        usecase "Xóa sinh viên"
-        usecase "Tra cứu thông tin sinh viên"
-    }
-    package "Quản lý lớp học" {
-        usecase "Thêm lớp học"
-        usecase "Cập nhật thông tin lớp học"
-        usecase "Xóa lớp học"
-        usecase "Tra cứu thông tin lớp học"
-    }
-    package "Quản lý môn học" {
-        usecase "Thêm môn học"
-        usecase "Sửa thông tin môn học"
-        usecase "Xóa môn học"
-        usecase "Tra cứu môn học"
-    }
-    package "Quản lý điểm số" {
-        usecase "Nhập điểm"
-        usecase "Sửa điểm"
-        usecase "Xóa điểm"
-        usecase "Tra cứu kết quả học tập"
-    }
-}
-
-
-"Quản lý sinh viên" --> "Quản lý lớp học"
-"Quản lý lớp học" --> "Quản lý môn học"
-"Quản lý môn học" --> "Quản lý điểm số"
-"Quản lý điểm số" --> "Quản lý sinh viên"
-@enduml
-```
+![image](https://hackmd.io/_uploads/H1KbdLofyl.png)
 
 ## 3.3. SƠ ĐỒ USE CASE
 
 ### 3.3.1. Use Case tổng quát
 - Use Case tổng quát thể hiện các chức năng chính của hệ thống và mối quan hệ giữa người dùng và hệ thống.
 
-```plantuml
-@startuml
-actor "Quản trị viên hệ thống" as Admin
-actor "Cán bộ quản lý" as Manager
-
-package "Hệ thống quản lý sinh viên" {
-    usecase "Quản lý sinh viên" as UC_Student
-    usecase "Quản lý lớp học" as UC_Class
-    usecase "Quản lý môn học" as UC_Subject
-    usecase "Quản lý điểm số" as UC_Grade
-}
-
-' Relationships
-Admin --> UC_Student : "Thực hiện"
-Admin --> UC_Class : "Thực hiện"
-Admin --> UC_Subject : "Thực hiện"
-Admin --> UC_Grade : "Thực hiện"
-
-Manager --> UC_Student : "Thực hiện"
-Manager --> UC_Class : "Thực hiện"
-Manager --> UC_Subject : "Thực hiện"
-Manager --> UC_Grade : "Thực hiện"
-
-' Notes
-note right of UC_Grade
-Quản lý điểm số:
-1. Nhập điểm.
-2. Sửa điểm.
-3. Xóa điểm.
-4. Tra cứu kết quả học tập.
-end note
-
-note bottom of UC_Class
-Quản lý lớp học:
-1. Thêm lớp học.
-2. Sửa thông tin lớp.
-3. Xóa lớp học.
-4. Tra cứu lớp học.
-end note
-
-note right of UC_Subject
-Quản lý môn học:
-1. Thêm môn học.
-2. Sửa thông tin môn học.
-3. Xóa môn học.
-4. Tra cứu môn học.
-end note
-
-note right of UC_Student
-Quản lý sinh viên:
-1. Thêm sinh viên.
-2. Sửa thông tin sinh viên.
-3. Xóa sinh viên.
-4. Tra cứu sinh viên.
-end note
-
-@enduml
-
-```
+![image](https://hackmd.io/_uploads/BJeouIjz1e.png)
 
 
 
@@ -537,7 +523,6 @@ end note
 ![image](https://hackmd.io/_uploads/r1HvbwozJl.png)
 
 ### 3.5.3 Module Quản lý Môn Học
-
 - Sơ đồ lớp **Module Quản lý Môn Học**.
 
 ![image](https://hackmd.io/_uploads/SkMsWwifJx.png)
@@ -658,11 +643,11 @@ Quản lý thông tin tài khoản đăng nhập.
 
 - Dưới đây là sơ đồ mối quan hệ **(ERD - Entity Relationship Diagram)**:
 
-![image](https://hackmd.io/_uploads/Bk2z8wjM1e.png)
+![image](https://hackmd.io/_uploads/rybgTD17Je.png)
 
 ## 3.7 Biểu đồ cộng tác
 ### 3.7.1. Biểu đồ cộng tác: Quản lý Sinh Viên
-a. Thêm Sinh Viên
+**a. Thêm Sinh Viên**
 - Mô tả:
 	- Quản trị viên đăng nhập vào hệ thống.
 	- Chọn chức năng "Thêm sinh viên".
@@ -673,9 +658,10 @@ a. Thêm Sinh Viên
 		- Nếu không hợp lệ: Hiển thị lỗi và yêu cầu sửa thông tin.
 	- Sau khi lưu thành công, hệ thống thông báo hoàn tất.
 
-![image](https://hackmd.io/_uploads/B1QTytsG1g.png)
+![image](https://hackmd.io/_uploads/S18b6vkXyx.png)
 
-b. Tra cứu Sinh Viên
+
+**b. Tra cứu Sinh Viên**
 - Mô tả:
 	- Quản trị viên đăng nhập vào hệ thống.
 	- Chọn chức năng "Tra cứu sinh viên".
@@ -684,10 +670,11 @@ b. Tra cứu Sinh Viên
     - Hệ thống truy vấn dữ liệu trong cơ sở dữ liệu và trả về danh sách kết quả.
     - Kết quả hiển thị cho quản trị viên.
 
-![image](https://hackmd.io/_uploads/rJ_01tsMyg.png)
+![image](https://hackmd.io/_uploads/BkJfTPy7ke.png)
+
 
 ### 3.7.2. Biểu đồ cộng tác: Quản lý Lớp Học
-a. Thêm Lớp Học
+**a. Thêm Lớp Học**
 - Mô tả:
 	- Quản trị viên đăng nhập vào hệ thống.
 	- Chọn chức năng "Thêm lớp học".
@@ -698,9 +685,9 @@ a. Thêm Lớp Học
 		- Nếu không hợp lệ: Yêu cầu quản trị viên sửa thông tin.
     - Sau khi lưu thành công, hệ thống thông báo hoàn tất.
 
-![image](https://hackmd.io/_uploads/Sy7extiGyg.png)
+![image](https://hackmd.io/_uploads/SytMTvJQkl.png)
 
-b. Tra cứu Lớp Học
+**b. Tra cứu Lớp Học**
 - Mô tả:
 	- Quản trị viên đăng nhập vào hệ thống.
 	- Chọn chức năng "Tra cứu lớp học".
@@ -709,10 +696,9 @@ b. Tra cứu Lớp Học
 	- Hệ thống truy vấn cơ sở dữ liệu và trả về danh sách kết quả.
 	- Hệ thống hiển thị danh sách lớp học phù hợp.
 
-![image](https://hackmd.io/_uploads/HkuZltiGJl.png)
+![image](https://hackmd.io/_uploads/B15m6wJQ1x.png)
 
 ### 3.7.3. Biểu đồ cộng tác: Đăng Nhập và Phân Quyền
-a. Đăng Nhập
 - Mô tả:
     - Người dùng nhập tài khoản và mật khẩu vào hệ thống.
     - Hệ thống kiểm tra thông tin đăng nhập trong cơ sở dữ liệu:
@@ -720,10 +706,10 @@ a. Đăng Nhập
 		- Nếu không hợp lệ: Hiển thị thông báo lỗi.
     - Hệ thống hiển thị giao diện phù hợp với quyền hạn (Quản trị viên hoặc Cán bộ quản lý).
 
-![image](https://hackmd.io/_uploads/rkwzgYofkx.png)
+![image](https://hackmd.io/_uploads/ByUD6Dym1g.png)
 
 ### 3.7.4. Biểu đồ cộng tác: Quản lý Môn Học
-a. Thêm môn học
+**a. Thêm môn học**
 - Mô tả:
 	- Quản trị viên đăng nhập vào hệ thống.
 	- Chọn chức năng "Thêm môn học".
@@ -734,9 +720,9 @@ a. Thêm môn học
     	- Nếu không hợp lệ: Yêu cầu quản trị viên sửa thông tin.
     - Sau khi lưu thành công, hệ thống thông báo hoàn tất.
 
-![image](https://hackmd.io/_uploads/SJI7lFjMJl.png)
+![image](https://hackmd.io/_uploads/ryptpDkQke.png)
 
-b. Tra cứu môn học
+**b. Tra cứu môn học**
 - Mô tả:
 	- Quản trị viên đăng nhập vào hệ thống.
 	- Chọn chức năng "Tra cứu môn học".
@@ -745,10 +731,9 @@ b. Tra cứu môn học
 	- Hệ thống truy vấn cơ sở dữ liệu và trả về danh sách kết quả.
 	- Hệ thống hiển thị danh sách môn học phù hợp.
 
-![image](https://hackmd.io/_uploads/Bkv4xtizke.png)
+![image](https://hackmd.io/_uploads/SJp9aDkQkl.png)
 
 ### 3.7.5. Biểu đồ cộng tác: Quản lý Điểm Số
-a. Nhập điểm
 - Mô tả:
 	- Quản trị viên đăng nhập vào hệ thống.
 	- Chọn chức năng "Nhập điểm".
@@ -759,10 +744,9 @@ a. Nhập điểm
 		- Nếu không hợp lệ: Yêu cầu quản trị viên chỉnh sửa.
 	- Sau khi lưu thành công, hệ thống thông báo hoàn tất.
 
-![image](https://hackmd.io/_uploads/Sk7SetsMkl.png)
+![image](https://hackmd.io/_uploads/HkbaaPJXJg.png)
 
 ### 3.7.6. Biểu đồ cộng tác: Báo Cáo và Thống Kê
-a. Tạo báo cáo kết quả học tập
 - Mô tả:
 	- Quản trị viên đăng nhập vào hệ thống.
 	- Chọn chức năng "Tạo báo cáo".
@@ -771,7 +755,7 @@ a. Tạo báo cáo kết quả học tập
 	- Hệ thống truy vấn dữ liệu và xử lý báo cáo.
 	- Hệ thống hiển thị kết quả báo cáo hoặc cho phép tải xuống file.
 
-![image](https://hackmd.io/_uploads/H10IxFiG1e.png)
+![image](https://hackmd.io/_uploads/S1_RavyQkl.png)
 
 ## 3.8 Biểu đồ trạng thái
 ### 3.8.1. Biểu đồ trạng thái cho Sinh Viên
