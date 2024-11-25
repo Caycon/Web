@@ -257,3 +257,75 @@ SQL Injection được phân loại dựa trên cách và nơi kết quả đư�
 3. **Out-of-band SQL Injection**: Gửi kết quả đến một máy chủ từ xa, chẳng hạn như qua DNS.
 
 ---
+
+## Subverting Query Logic
+
+Bây giờ khi đã hiểu cơ bản về cách hoạt động của các câu lệnh SQL, chúng ta có thể tìm hiểu về SQL Injection và cách làm sai lệch logic truy vấn. Trước tiên, chúng ta sẽ học cách chèn toán tử **OR** và sử dụng các bình luận SQL để làm thay đổi logic của truy vấn ban đầu. Một ví dụ điển hình là **bỏ qua bước xác thực**, mà chúng ta sẽ minh họa trong phần này.
+
+### Authentication Bypass
+
+- Giả sử tồn tại trang đăng nhập sử dụng truy vấn SQL như sau để kiểm tra thông tin đăng nhập:
+
+```sql
+SELECT * FROM logins WHERE username='admin' AND password = 'p@ssw0rd';
+```
+
+- Trang sẽ so sánh thông tin đầu vào với cơ sở dữ liệu và nếu thông tin khớp, người dùng sẽ được cấp quyền truy cập. Tuy nhiên, nếu nhập thông tin sai, truy vấn sẽ trả về **false**, và quá trình xác thực sẽ bị từ chối.
+
+### SQLi Discovery
+
+- Để kiểm tra xem biểu mẫu đăng nhập có dễ bị tấn công SQL Injection hay không, chúng ta có thể thử chèn một trong các payload sau vào trường đầu vào:
+
+| Payload | URL Encoded |
+|---------|-------------|
+| `'`     | `%27`       |
+| `"`     | `%22`       |
+| `#`     | `%23`       |
+| `;`     | `%3B`       |
+| `)`     | `%29`       |
+
+- Nếu một thông báo lỗi SQL xuất hiện thay vì thông báo thất bại thông thường, điều đó cho thấy biểu mẫu có thể bị khai thác. Ví dụ:
+
+```sql
+SELECT * FROM logins WHERE username=''' AND password='something';
+```
+
+- Kết quả là lỗi cú pháp do số lượng dấu ngoặc đơn không cân bằng.
+
+### OR Injection
+
+- Để bỏ qua bước xác thực, chúng ta cần đảm bảo truy vấn SQL luôn trả về **true**. Điều này có thể thực hiện bằng cách thêm toán tử **OR** cùng với một điều kiện luôn đúng như `'1'='1'`. Khi chèn payload sau:
+
+```sql
+admin' OR '1'='1
+```
+
+- Câu truy vấn sẽ trở thành:
+
+```sql
+SELECT * FROM logins WHERE username='admin' OR '1'='1' AND password='something';
+```
+
+### Giải Thích
+
+1. Điều kiện đầu tiên kiểm tra `username='admin'`.
+2. Điều kiện `OR '1'='1'` luôn đúng.
+3. Kết hợp với **AND**, truy vấn vẫn trả về **true**.
+
+- Với logic này, người tấn công có thể đăng nhập mà không cần biết mật khẩu thực tế. Điều kiện `'1'='1'` đảm bảo truy vấn luôn thành công, bất kể mật khẩu nhập vào.
+
+### Sử Dụng OR trong Trường Mật Khẩu
+
+Nếu không biết tên người dùng hợp lệ, chúng ta có thể sử dụng phương pháp tương tự với trường mật khẩu:
+
+```sql
+' OR '1'='1
+```
+
+Câu truy vấn sẽ trở thành:
+
+```sql
+SELECT * FROM logins WHERE username='anyUser' AND (password='' OR '1'='1');
+```
+
+Điều này dẫn đến việc truy vấn trả về tất cả các bản ghi trong bảng và cấp quyền đăng nhập cho người đầu tiên trong danh sách.
