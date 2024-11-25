@@ -7,6 +7,30 @@
 
 - **SQL injection** đề cập đến các cuộc tấn công chống lại cơ sở dữ liệu quan hệ như MySQL (việc injections vào cơ sở dữ liệu không quan hệ, chẳng hạn như MongoDB, là việc NoSQL injections).
 
+## Databases
+### Database Management Systems
+- **Hệ thống quản lý cơ sở dữ liệu** hay **Database Management Systems** **(DBMS)** giúp tạo, xác định, lưu trữ và quản lý cơ sở dữ liệu. Nhiều loại **DBMS** khác nhau được thiết kế theo thời gian, chẳng hạn như DBMS dựa trên tệp, DBMS quan hệ (RDBMS), NoSQL, dựa trên đồ thị và lưu trữ Khóa/Giá trị.
+
+- Có nhiều cách để tương tác với DBMS, chẳng hạn như các công cụ dòng lệnh, giao diện đồ họa hoặc thậm chí APIs (Application Programming Interfaces). DBMS được sử dụng trong các lĩnh vực ngân hàng, tài chính và giáo dục khác nhau để ghi lại lượng lớn dữ liệu. Một số tính năng cần thiết của DBMS bao gồm:
+
+| Tính năng                  | Mô tả                                                                                                     |
+|----------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Concurrency** (Tính đồng thời)            | Ứng dụng thực tế thường có nhiều người dùng tương tác cùng lúc. DBMS đảm bảo các tương tác này thành công mà không làm hỏng hoặc mất dữ liệu. |
+| **Consistency** (Tính nhất quán)            | Với nhiều tương tác đồng thời, DBMS cần đảm bảo rằng dữ liệu vẫn nhất quán và hợp lệ trong toàn bộ cơ sở dữ liệu. |
+| **Security**                   | DBMS cung cấp các cơ chế kiểm soát bảo mật chi tiết thông qua xác thực người dùng và phân quyền, ngăn chặn truy cập trái phép vào dữ liệu nhạy cảm. |
+| **Reliability**                | Hệ thống cho phép sao lưu cơ sở dữ liệu dễ dàng và khôi phục lại trạng thái trước đó trong trường hợp mất dữ liệu hoặc bị xâm phạm. |
+| **Structured Query Language** | SQL đơn giản hóa việc tương tác với cơ sở dữ liệu nhờ cú pháp trực quan, hỗ trợ nhiều thao tác khác nhau.                             |
+
+![image](https://github.com/user-attachments/assets/ac74fee0-bc79-4ddd-8f64-038bf114e215)
+
+- Trong hệ thống, **Tier I** thường là các ứng dụng phía người dùng như trang web hoặc các chương trình giao diện đồ họa (GUI). Đây là nơi diễn ra các thao tác trực tiếp với người dùng, chẳng hạn như đăng nhập hoặc bình luận. Dữ liệu từ các thao tác này được gửi đến **Tier II** thông qua các API hoặc các yêu cầu khác.
+
+- **Tier II** là tầng trung gian (**middleware**), có nhiệm vụ xử lý các sự kiện nhận được và định dạng chúng sao cho phù hợp với hệ thống quản lý cơ sở dữ liệu (DBMS). Lớp ứng dụng trong tầng này sử dụng các thư viện và trình điều khiển (drivers) phù hợp với loại DBMS để thực hiện việc tương tác.
+
+- Hệ thống quản lý cơ sở dữ liệu (DBMS) nhận các truy vấn từ tầng trung gian, thực hiện các tác vụ được yêu cầu như chèn, truy xuất, xóa hoặc cập nhật dữ liệu. Sau khi xử lý xong, DBMS trả về dữ liệu được yêu cầu hoặc mã lỗi nếu truy vấn không hợp lệ.
+
+- Có thể đặt máy chủ ứng dụng (**application server**) và hệ thống DBMS trên cùng một máy. Tuy nhiên, đối với các cơ sở dữ liệu lớn hoặc có nhiều người dùng truy cập, việc tách chúng ra trên các máy chủ riêng biệt thường được ưu tiên để cải thiện hiệu suất và khả năng mở rộng.
+
 ## Types of Databases
 ### Relational Databases
 - Cơ sở dữ liệu quan hệ (**Relational Database**) là một trong những loại cơ sở dữ liệu phổ biến nhất, sử dụng một **schema** (cấu trúc định sẵn) để xác định cách dữ liệu được tổ chức và lưu trữ.
@@ -73,6 +97,7 @@
     - **Add / remove users**
     - **Assign permissions to these users**
 - Cụ thể chi hơn thì học SQL là bt nha:))))
+
 
 ## SQL Injection (SQLi)
 - Injection vulnerabilities xảy ra khi dữ liệu đầu vào do người dùng kiểm soát không được xử lý đúng cách và trực tiếp được đưa vào mã nguồn hoặc truy vấn, dẫn đến việc thực thi mã không mong muốn hoặc truy cập dữ liệu trái phép.
@@ -166,26 +191,67 @@ SELECT * FROM users WHERE username = 'admin' -- ' AND password = '';
 ```
 - Dấu `--` làm mọi thứ sau nó bị bỏ qua, dẫn đến việc truy vấn chỉ kiểm tra tên người dùng admin, và bỏ qua kiểm tra mật khẩu.
 
-## Databases
-### Database Management Systems
-- **Hệ thống quản lý cơ sở dữ liệu** hay **Database Management Systems** **(DBMS)** giúp tạo, xác định, lưu trữ và quản lý cơ sở dữ liệu. Nhiều loại **DBMS** khác nhau được thiết kế theo thời gian, chẳng hạn như DBMS dựa trên tệp, DBMS quan hệ (RDBMS), NoSQL, dựa trên đồ thị và lưu trữ Khóa/Giá trị.
 
-- Có nhiều cách để tương tác với DBMS, chẳng hạn như các công cụ dòng lệnh, giao diện đồ họa hoặc thậm chí APIs (Application Programming Interfaces). DBMS được sử dụng trong các lĩnh vực ngân hàng, tài chính và giáo dục khác nhau để ghi lại lượng lớn dữ liệu. Một số tính năng cần thiết của DBMS bao gồm:
+## Sử dụng SQL trong Ứng dụng Web
 
-| Tính năng                  | Mô tả                                                                                                     |
-|----------------------------|-----------------------------------------------------------------------------------------------------------|
-| **Concurrency** (Tính đồng thời)            | Ứng dụng thực tế thường có nhiều người dùng tương tác cùng lúc. DBMS đảm bảo các tương tác này thành công mà không làm hỏng hoặc mất dữ liệu. |
-| **Consistency** (Tính nhất quán)            | Với nhiều tương tác đồng thời, DBMS cần đảm bảo rằng dữ liệu vẫn nhất quán và hợp lệ trong toàn bộ cơ sở dữ liệu. |
-| **Security**                   | DBMS cung cấp các cơ chế kiểm soát bảo mật chi tiết thông qua xác thực người dùng và phân quyền, ngăn chặn truy cập trái phép vào dữ liệu nhạy cảm. |
-| **Reliability**                | Hệ thống cho phép sao lưu cơ sở dữ liệu dễ dàng và khôi phục lại trạng thái trước đó trong trường hợp mất dữ liệu hoặc bị xâm phạm. |
-| **Structured Query Language** | SQL đơn giản hóa việc tương tác với cơ sở dữ liệu nhờ cú pháp trực quan, hỗ trợ nhiều thao tác khác nhau.                             |
+Hầu hết các ứng dụng web đều sử dụng cơ sở dữ liệu như MySQL để lưu trữ và truy xuất dữ liệu. Sau khi cài đặt hệ thống quản lý cơ sở dữ liệu (DBMS) trên máy chủ phụ trợ và đưa vào hoạt động, ứng dụng web có thể dễ dàng sử dụng để xử lý dữ liệu.
 
-![image](https://github.com/user-attachments/assets/ac74fee0-bc79-4ddd-8f64-038bf114e215)
+Ví dụ, trong một ứng dụng web PHP, chúng ta có thể kết nối đến cơ sở dữ liệu MySQL và thực hiện truy vấn như sau:
 
-- Trong hệ thống, **Tier I** thường là các ứng dụng phía người dùng như trang web hoặc các chương trình giao diện đồ họa (GUI). Đây là nơi diễn ra các thao tác trực tiếp với người dùng, chẳng hạn như đăng nhập hoặc bình luận. Dữ liệu từ các thao tác này được gửi đến **Tier II** thông qua các API hoặc các yêu cầu khác.
+```php
+$conn = new mysqli("localhost", "root", "password", "users");
+$query = "select * from logins";
+$result = $conn->query($query);
+```
 
-- **Tier II** là tầng trung gian (**middleware**), có nhiệm vụ xử lý các sự kiện nhận được và định dạng chúng sao cho phù hợp với hệ thống quản lý cơ sở dữ liệu (DBMS). Lớp ứng dụng trong tầng này sử dụng các thư viện và trình điều khiển (drivers) phù hợp với loại DBMS để thực hiện việc tương tác.
+Kết quả truy vấn có thể được hiển thị như sau:
 
-- Hệ thống quản lý cơ sở dữ liệu (DBMS) nhận các truy vấn từ tầng trung gian, thực hiện các tác vụ được yêu cầu như chèn, truy xuất, xóa hoặc cập nhật dữ liệu. Sau khi xử lý xong, DBMS trả về dữ liệu được yêu cầu hoặc mã lỗi nếu truy vấn không hợp lệ.
+```php
+while($row = $result->fetch_assoc()) {
+    echo $row["name"]."<br>";
+}
+```
 
-- Có thể đặt máy chủ ứng dụng (**application server**) và hệ thống DBMS trên cùng một máy. Tuy nhiên, đối với các cơ sở dữ liệu lớn hoặc có nhiều người dùng truy cập, việc tách chúng ra trên các máy chủ riêng biệt thường được ưu tiên để cải thiện hiệu suất và khả năng mở rộng.
+Ứng dụng web cũng thường xử lý các dữ liệu đầu vào từ người dùng để tìm kiếm thông tin. Ví dụ, khi người dùng thực hiện tìm kiếm một tên cụ thể, dữ liệu đầu vào của họ được truyền vào truy vấn SQL:
+
+```php
+$searchInput = $_POST['findUser'];
+$query = "select * from logins where username like '%$searchInput'";
+$result = $conn->query($query);
+```
+
+### SQL Injection là gì?
+
+SQL Injection xảy ra khi dữ liệu đầu vào của người dùng được chèn trực tiếp vào truy vấn SQL mà không qua bất kỳ kiểm tra hoặc xử lý nào. Điều này tạo cơ hội cho kẻ tấn công đưa mã độc hại vào hệ thống.
+
+Ví dụ:
+
+```php
+$searchInput = $_POST['findUser'];
+$query = "select * from logins where username like '%$searchInput'";
+$result = $conn->query($query);
+```
+
+Nếu kẻ tấn công nhập vào: `1'; DROP TABLE users;`, truy vấn SQL sẽ trở thành:
+
+```sql
+select * from logins where username like '%1'; DROP TABLE users;'
+```
+
+Điều này có thể dẫn đến việc xóa toàn bộ bảng `users`.
+
+### Các loại SQL Injection
+
+SQL Injection được phân loại dựa trên cách và nơi kết quả được truy xuất:
+
+1. **In-band SQL Injection**: Kết quả truy vấn được hiển thị trực tiếp trên giao diện người dùng.
+   - **Union-Based SQLi**: Kết hợp kết quả từ nhiều truy vấn.
+   - **Error-Based SQLi**: Dựa vào thông tin lỗi từ SQL để lấy dữ liệu.
+
+2. **Blind SQL Injection**: Kết quả không hiển thị trực tiếp, nhưng có thể được suy ra.
+   - **Boolean-Based SQLi**: Sử dụng các điều kiện đúng/sai để kiểm tra.
+   - **Time-Based SQLi**: Sử dụng các lệnh gây chậm (như `SLEEP()`) để phát hiện.
+
+3. **Out-of-band SQL Injection**: Gửi kết quả đến một máy chủ từ xa, chẳng hạn như qua DNS.
+
+---
