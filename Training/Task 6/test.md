@@ -308,6 +308,8 @@ SELECT * FROM logins WHERE username='admin' OR '1'='1' AND password='something';
 
 ### Giải Thích
 
+![image](https://github.com/user-attachments/assets/4f0a2011-58b8-48cb-b1ef-4313f2125ff9)
+
 1. Điều kiện đầu tiên kiểm tra `username='admin'`.
 2. Điều kiện `OR '1'='1'` luôn đúng.
 3. Kết hợp với **AND**, truy vấn vẫn trả về **true**.
