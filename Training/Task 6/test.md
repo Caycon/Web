@@ -242,6 +242,8 @@ select * from logins where username like '%1'; DROP TABLE users;'
 
 ### Các loại SQL Injection
 
+![image](https://github.com/user-attachments/assets/aea168f6-cc77-4e44-abdc-348a190a9e68)
+
 SQL Injection được phân loại dựa trên cách và nơi kết quả được truy xuất:
 
 1. **In-band SQL Injection**: Kết quả truy vấn được hiển thị trực tiếp trên giao diện người dùng.
