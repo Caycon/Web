@@ -189,3 +189,4 @@ SELECT * FROM users WHERE username = 'admin' -- ' AND password = '';
     - **Add / remove users**
     - **Assign permissions to these users**
 - Cụ thể chi hơn thì học SQL là bt nha:))))
+
