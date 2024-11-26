@@ -473,3 +473,5 @@ show tables;
 select * from news;
 select * from users;
 ```
+
+![image](https://github.com/user-attachments/assets/efafadf4-53cc-4a06-a857-a3147240b04e)
