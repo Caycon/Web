@@ -459,3 +459,17 @@ SELECT * FROM logins WHERE (username='admin')
     ```
 
     - Nếu cột thứ 2 hiển thị, kết quả sẽ in ra phiên bản cơ sở dữ liệu.
+
+
+# Chall
+## Sandbox
+- SQL check từng bảng coi sao.
+```bash
+show tables;
+```
+- Ta thấy có 2 tables là `news` và `users` vô coi thử có gì thôi.
+
+```bash
+select * from news;
+select * from users;
+```
