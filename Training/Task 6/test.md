@@ -609,6 +609,7 @@ if (isset($_GET["id"])) {
 ![image](https://github.com/user-attachments/assets/78e287ac-6336-40fc-a53e-14afecbc24a8)
 
 ### LV7
+- Sau khi thử đủ cách mình quyết định đi đọc source:)
 
 ```php
 <?php
