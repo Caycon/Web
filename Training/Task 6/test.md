@@ -609,7 +609,27 @@ if (isset($_GET["id"])) {
 ![image](https://github.com/user-attachments/assets/78e287ac-6336-40fc-a53e-14afecbc24a8)
 
 ### LV7
-- Sau khi thử đủ cách mình quyết định đi đọc source:)
+- Chall này trước khi đọc source thì mình check được là nếu reg acc bằng sql thì khi đn vào có thể truy vấn được.
+- Nên mình thử show all bằng union.
+
+![image](https://github.com/user-attachments/assets/7cc200d4-1b51-4bce-b859-c16cf6b099d2)
+
+![image](https://github.com/user-attachments/assets/6221862e-8fa7-49b2-bab4-9e8e4fa9c651)
+- Ở đây mình dùng concat tuy nhiên chỉ lấy đc 1 account. Nên mình đoán nó giống chall trước:)
+- Search:
+
+| **Hàm**             | **Mô tả**                                                                                   | **Ví dụ**                                                                                              |
+|---------------------|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `CONCAT()`          | Nối các chuỗi lại với nhau.                                                                  | `' UNION SELECT CONCAT(username, ':', password) FROM users #`                                          |
+| `CONCAT_WS()`       | Nối các chuỗi lại với nhau và cho phép chỉ định ký tự phân cách giữa các chuỗi.             | `' UNION SELECT CONCAT_WS(':', username, password) FROM users #`                                        |
+| `GROUP_CONCAT()`    | Nối tất cả các giá trị trong một cột thành một chuỗi duy nhất.                              | `' UNION SELECT GROUP_CONCAT(username) FROM users #`                                                   |
+| `SUBSTRING()`       | Lấy một phần của chuỗi, chỉ định vị trí bắt đầu và độ dài của phần chuỗi cần lấy.             | `' UNION SELECT SUBSTRING(password, 1, 10) FROM users #`                                              |
+| `SUBSTRING_INDEX()` | Lấy một phần của chuỗi trước hoặc sau dấu phân cách chỉ định.                               | `' UNION SELECT SUBSTRING_INDEX(password, ':', 1) FROM users #`                                        |
+| `ORD()`             | Lấy mã ASCII của ký tự đầu tiên trong chuỗi.                                                 | `' UNION SELECT ORD(SUBSTRING(password, 1, 1)) FROM users #`                                           |
+| `AES_DECRYPT()`     | Giải mã dữ liệu đã mã hóa bằng thuật toán AES (nếu có khóa mã hóa).                          | `' UNION SELECT AES_DECRYPT(encrypted_password, 'encryption_key') FROM users #`                        |
+| `COUNT()`           | Đếm số lượng bản ghi trong bảng.                                                             | `' UNION SELECT COUNT(*) FROM users #`                                                                  |
+
+![image](https://github.com/user-attachments/assets/87df7537-9051-4e55-8fc2-6219628edeac)
 
 ```php
 <?php
