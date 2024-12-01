@@ -192,11 +192,11 @@ SELECT * FROM users WHERE username = 'admin' -- ' AND password = '';
 - Dấu `--` làm mọi thứ sau nó bị bỏ qua, dẫn đến việc truy vấn chỉ kiểm tra tên người dùng admin, và bỏ qua kiểm tra mật khẩu.
 
 
-## Sử dụng SQL trong Ứng dụng Web
+## Sử dụng SQL
 
-Hầu hết các ứng dụng web đều sử dụng cơ sở dữ liệu như MySQL để lưu trữ và truy xuất dữ liệu. Sau khi cài đặt hệ thống quản lý cơ sở dữ liệu (DBMS) trên máy chủ phụ trợ và đưa vào hoạt động, ứng dụng web có thể dễ dàng sử dụng để xử lý dữ liệu.
+- Hầu hết các ứng dụng web đều sử dụng cơ sở dữ liệu như MySQL để lưu trữ và truy xuất dữ liệu. Sau khi cài đặt hệ thống quản lý cơ sở dữ liệu (DBMS) trên máy chủ phụ trợ và đưa vào hoạt động, ứng dụng web có thể dễ dàng sử dụng để xử lý dữ liệu.
 
-Ví dụ, trong một ứng dụng web PHP, chúng ta có thể kết nối đến cơ sở dữ liệu MySQL và thực hiện truy vấn như sau:
+- Ví dụ, trong một ứng dụng web PHP, chúng ta có thể kết nối đến cơ sở dữ liệu MySQL và thực hiện truy vấn như sau:
 
 ```php
 $conn = new mysqli("localhost", "root", "password", "users");
@@ -222,7 +222,7 @@ $result = $conn->query($query);
 
 ### SQL Injection là gì?
 
-SQL Injection xảy ra khi dữ liệu đầu vào của người dùng được chèn trực tiếp vào truy vấn SQL mà không qua bất kỳ kiểm tra hoặc xử lý nào. Điều này tạo cơ hội cho kẻ tấn công đưa mã độc hại vào hệ thống.
+SQL Injection xảy ra khi dữ liệu đầu vào của người dùng được chèn trực tiếp vào truy vấn SQL mà không qua bất kỳ kiểm tra hoặc xử lý nào. Điều này tạo cơ hội cho ta đưa mã độc hại vào hệ thống.
 
 Ví dụ:
 
@@ -232,7 +232,7 @@ $query = "select * from logins where username like '%$searchInput'";
 $result = $conn->query($query);
 ```
 
-Nếu kẻ tấn công nhập vào: `1'; DROP TABLE users;`, truy vấn SQL sẽ trở thành:
+Nếu ta nhập vào: `1'; DROP TABLE users;`, truy vấn SQL sẽ trở thành:
 
 ```sql
 select * from logins where username like '%1'; DROP TABLE users;'
