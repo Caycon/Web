@@ -632,3 +632,7 @@ if (isset($_GET["id"])) {
 ![image](https://github.com/user-attachments/assets/87df7537-9051-4e55-8fc2-6219628edeac)
 
 ### LV8
+- Chưa có làm:(((
+
+### PortSwigger
+
