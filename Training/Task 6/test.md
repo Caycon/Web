@@ -661,4 +661,55 @@ if (isset($_GET["id"])) {
 
 ![image](https://github.com/user-attachments/assets/1c16d1fb-fa63-4233-833b-ac11d5581055)
 
-### 
+### SQL injection - String
+- Check thử ta thấy rằng search kiểu này thường là union:)))
+
+![image](https://github.com/user-attachments/assets/803d9dce-f14a-4cbb-8baf-fd374bf1fd23)
+- Đây là sqllite3. Biết được loại r thì ta xem nó có những gì thôi:)))
+- Thường thì mấy cái như này mình nghĩ nó sẽ có users:)))
+
+![image](https://github.com/user-attachments/assets/3cfdb979-7668-4d5b-8f8f-6483956c7fef)
+- Khá giống mình đó h đọc data thôi
+
+![image](https://github.com/user-attachments/assets/4df8eb82-86f0-41c2-8fbe-86876b242e43)
+- Pas là flag.
+
+### SQL injection - Numeric
+
+- Cố thử bypass tuy nhiên không được:(
+- Do đó mình có đi đọc wu:))
+- Ta thấy rằng có id thay đổi do đó chall này có thể là SQLi tại HTTP GET METHOD.
+- Sql trực tiếp trên url ta thấy bài được:)
+- Làm tương tự chall `String` ta có được flag.
+
+![image](https://github.com/user-attachments/assets/5e7aae90-1fed-45a7-8563-d3e406fd63cd)
+
+![image](https://github.com/user-attachments/assets/cee69dfa-e52f-4dc6-a4d7-b251037d56d1)
+- Pas là flag.
+
+### SQL Injection - Routed
+- Nhận thấy union xài được. 
+- Search thì thấy khả năng cao liên quan đến `information_schema`.
+- [Hacktrick](https://book.hacktricks.xyz/pentesting-web/sql-injection#routed-sql-injection).
+- Check 1 vài cách thì ta pass được với cách tương tự lv7 ở trên. Tuy nhiên phải chuyển qua hex trước khi sql injection.
+- Ở đây mình copy luôn đoạn trên hacktrick:))
+`-1'+union select+0x2d312720756e696f6e2073656c656374206c6f67696e2c70617373776f72642066726f6d2075736572732d2d2061+--+`
+
+![image](https://github.com/user-attachments/assets/e197151c-12ce-4949-b964-3061b5eb663e)
+
+### SQL Truncation
+- Cho reg acc thì mình reg thử thôi:))
+- Check source thì ta thấy:
+```sql
+<!--
+CREATE TABLE IF NOT EXISTS user(   
+	id INT NOT NULL AUTO_INCREMENT,
+    login VARCHAR(12),
+    password CHAR(32),
+    PRIMARY KEY (id));
+-->
+```
+- Khả nảng cao đây là sql bị leak:))
+- Tạo username là `admin++++++++++++++++++++15` hơn 12 bytes là được. Xong đó login bằng pass mới nhập ta có được flag.
+
+![image](https://github.com/user-attachments/assets/2a0275c9-f3e6-41ee-b97c-2c8783966b76)
