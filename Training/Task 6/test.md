@@ -654,4 +654,11 @@ if (isset($_GET["id"])) {
 - Khá giống chall ở trên.
 - Có thể xài `\` để break tuy nhiên search thử thêm xem `GBK` là gì nha.
 - Thì có thể hiểu nó là bộ ký tự GB (Guojia Biaozhun, hoặc Tiêu chuẩn quốc gia hoặc tiếng Trung giản thể). Cơ bản là ký tự Tung Của.
-- Ta sẽ thử bypass bằng ký tự bên đó: 
+- Ta sẽ thử bypass bằng ký tự bên đó.
+- Ở đây mình bypass bằng: `5%df`.
+
+![image](https://github.com/user-attachments/assets/a11d341a-b55e-4f37-9182-a01180c29d42)
+
+![image](https://github.com/user-attachments/assets/1c16d1fb-fa63-4233-833b-ac11d5581055)
+
+### 
