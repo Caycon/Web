@@ -608,6 +608,7 @@ if (isset($_GET["id"])) {
 
 ![image](https://github.com/user-attachments/assets/78e287ac-6336-40fc-a53e-14afecbc24a8)
 
+## Advanced
 ### LV7
 - Chall này trước khi đọc source thì mình check được là nếu reg acc bằng sql thì khi đn vào có thể truy vấn được.
 - Nên mình thử show all bằng union.
@@ -634,5 +635,23 @@ if (isset($_GET["id"])) {
 ### LV8
 - Chưa có làm:(((
 
-### PortSwigger
+## PortSwigger
 
+![image](https://github.com/user-attachments/assets/1fbdfdde-d1bf-49eb-8a9f-6132adefdcf1)
+- Vài lab cần brute force mà máy đơ nên khum làm xong:)
+
+## Root-me
+### SQL injection - Authentication
+
+- Bypass bằng cmt: 
+
+![image](https://github.com/user-attachments/assets/b3be81e7-06a4-4b29-b7a2-9900c615744d)
+
+- Pass chính là flag: `t0_W34k!$`
+
+### SQL injection - Authentication - GBK
+
+- Khá giống chall ở trên.
+- Có thể xài `\` để break tuy nhiên search thử thêm xem `GBK` là gì nha.
+- Thì có thể hiểu nó là bộ ký tự GB (Guojia Biaozhun, hoặc Tiêu chuẩn quốc gia hoặc tiếng Trung giản thể). Cơ bản là ký tự Tung Của.
+- Ta sẽ thử bypass bằng ký tự bên đó: 
