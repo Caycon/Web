@@ -725,4 +725,7 @@ CREATE TABLE IF NOT EXISTS user(
 
 - Dump toàn bộ data table ra là xong r:))
 
-### 
+### SQL injection - Error
+- sqlmap quét thử xem được gì không từ login, link ...
+- sqlmap thành công ở link content:
+
