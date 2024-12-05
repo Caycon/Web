@@ -729,3 +729,10 @@ CREATE TABLE IF NOT EXISTS user(
 - sqlmap quét thử xem được gì không từ login, link ...
 - sqlmap thành công ở link content:
 
+![image](https://github.com/user-attachments/assets/f8f97e81-ae7b-4881-aa94-cff3018e7c3d)
+
+- dump table `m3mbr35t4bl3` ra thoi.
+
+![image](https://github.com/user-attachments/assets/40ba9721-068c-47a0-8137-9a8864e91835)
+
+###
