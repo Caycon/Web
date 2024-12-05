@@ -713,3 +713,16 @@ CREATE TABLE IF NOT EXISTS user(
 - Tạo username là `admin++++++++++++++++++++15` hơn 12 bytes là được. Xong đó login bằng pass mới nhập ta có được flag.
 
 ![image](https://github.com/user-attachments/assets/2a0275c9-f3e6-41ee-b97c-2c8783966b76)
+
+### SQL injection - Blind
+- Dùng sqlmap quét thử xem được gì không.
+
+![image](https://github.com/user-attachments/assets/8f76dd75-3c34-4e30-a59b-da52da4f10c2)
+- Chọn tuy nhiên bị lỗi và có gợi ý xài `--tables`.
+- Tiếp tục sqlmap với `--table` ta có được table `users`
+
+![image](https://github.com/user-attachments/assets/6f84ff1e-f0ca-4ad0-876b-a486ce6e50fb)
+
+- Dump toàn bộ data table ra là xong r:))
+
+### 
