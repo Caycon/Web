@@ -754,3 +754,6 @@ CREATE TABLE IF NOT EXISTS user(
 (SELECT 1) AS A JOIN (SELECT 2) AS B  
 ```
 - Sử dụng burp send payload ta thu được flag.
+
+![image](https://github.com/user-attachments/assets/55b38551-2983-4f01-9b8d-110acf006006)
+
