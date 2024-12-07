@@ -259,9 +259,9 @@ IoC đóng vai trò quan trọng trong việc phát hiện và phân tích các 
 - **Phân tích và điều tra:** IoC giúp trong quá trình phân tích các sự cố bảo mật để tìm hiểu nguyên nhân gốc rễ và khôi phục lại hệ thống.
 
 
-# 2.2 Các phương thức tấn công phổ biến
+## 2.2 Các phương thức tấn công phổ biến
 
-## 2.2.1 Tấn công mạng truyền thống
+### 2.2.1 Tấn công mạng truyền thống
 | **Phương thức**            | **Mô tả**                                                                                                                                                         | **Ví dụ**                               |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
 | **Phishing**               | Tấn công lừa đảo qua email hoặc trang web giả mạo, đánh lừa người dùng cung cấp thông tin cá nhân hoặc tài khoản.                                                 | Email giả mạo ngân hàng yêu cầu thay đổi mật khẩu. |
@@ -269,20 +269,20 @@ IoC đóng vai trò quan trọng trong việc phát hiện và phân tích các 
 | **Brute Force Attack**     | Tấn công thử mật khẩu bằng cách thử mọi khả năng có thể cho đến khi tìm ra mật khẩu đúng.                                                                         | Tấn công vào tài khoản người dùng bằng cách thử nhiều mật khẩu. |
 | **SQL Injection**          | Tấn công vào cơ sở dữ liệu của ứng dụng web bằng cách chèn mã SQL độc hại vào đầu vào của người dùng để truy xuất hoặc thay đổi dữ liệu không được phép.         | Nhập mã SQL vào ô tìm kiếm để truy cập thông tin bảo mật trong cơ sở dữ liệu. |
 
-## 2.2.2 Tấn công phần mềm độc hại
+### 2.2.2 Tấn công phần mềm độc hại
 | **Phương thức**            | **Mô tả**                                                                                                                                                         | **Ví dụ**                               |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
 | **Malware**                | Phần mềm độc hại được thiết kế để gây hại cho máy tính hoặc hệ thống, bao gồm virus, trojan, worm và nhiều loại khác.                                           | Trojan horse cài đặt phần mềm gián điệp. |
 | **Ransomware**             | Phần mềm độc hại mã hóa dữ liệu và yêu cầu người dùng trả tiền chuộc để giải mã dữ liệu bị khóa.                                                                | WannaCry, NotPetya.                    |
 | **Spyware**                | Phần mềm gián điệp theo dõi hành động của người dùng mà không có sự đồng ý, thu thập dữ liệu nhạy cảm như thông tin đăng nhập và dữ liệu ngân hàng.                | Phần mềm gián điệp theo dõi keylogger.  |
 
-## 2.2.3 Tấn công nâng cao và lâu dài (APT)
+### 2.2.3 Tấn công nâng cao và lâu dài (APT)
 | **Đặc điểm**               | **Mô tả**                                                                                                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **APT**                    | Các cuộc tấn công kéo dài, tinh vi và được thực hiện bởi những nhóm có mục tiêu cao như các tổ chức nhà nước hoặc tội phạm tổ chức, nhắm vào các tổ chức lớn.   |
 | **Cách thức và mục tiêu chính** | Thường bắt đầu với tấn công phishing hoặc lừa đảo, tiếp theo là xâm nhập vào hệ thống và duy trì quyền kiểm soát trong một thời gian dài, với mục đích thu thập thông tin hoặc phá hoại hệ thống. |
 
-## 2.2.4 Tấn công vào chuỗi cung ứng
+### 2.2.4 Tấn công vào chuỗi cung ứng
 | **Ví dụ**                  | **Mô tả**                                                                                                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **SolarWinds**             | Một trong các vụ tấn công nổi bật vào chuỗi cung ứng, tin tặc đã xâm nhập vào phần mềm quản lý của SolarWinds để lây lan mã độc vào các tổ chức lớn, bao gồm cả chính phủ Mỹ. |
