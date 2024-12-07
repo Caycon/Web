@@ -735,4 +735,22 @@ CREATE TABLE IF NOT EXISTS user(
 
 ![image](https://github.com/user-attachments/assets/40ba9721-068c-47a0-8137-9a8864e91835)
 
-###
+### SQL injection - Filter bypass
+- Chall này filter 1 vài thứ như ` `; `select`;...
+- Ta sẽ bypass bằng truy vấn con (sub-query), `limit`, `offset`.
+- Quan sát hint ta biết bảng có 4 columns:
+```html
+// CREATE TABLE IF NOT EXISTS `membres` (
+//   `id` int(1) NOT NULL AUTO_INCREMENT,
+//   `username` VARCHAR(5) NOT NULL,
+//   `pass` VARCHAR(20) NOT NULL,
+//   `email` VARCHAR( 50 ) NOT NULL,
+//   PRIMARY KEY (`id`)
+// ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+-->
+```
+
+```sql
+(SELECT 1) AS A JOIN (SELECT 2) AS B  
+```
+- Sử dụng burp send payload ta thu được flag.
