@@ -144,3 +144,7 @@ POST /index.php?page=php://input
 - **Dirb**: Tìm kiếm các file ẩn hoặc nhạy cảm trên server.
 
 ---
+
+## Demo
+- Ở đây mình sẽ làm 1 số chall cơ bản liên quan để LFI.
+### 
