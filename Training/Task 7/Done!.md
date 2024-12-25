@@ -1,7 +1,7 @@
 # LFI vul (Local File Inclusion)
 
-## 1. Định Nghĩa
-Local File Inclusion (LFI) là một lỗ hổng bảo mật web xảy ra khi ứng dụng không kiểm tra hoặc lọc dữ liệu đầu vào một cách chặt chẽ. LFI cho phép kẻ tấn công chỉ định đường dẫn tới các file trên máy chủ, dẫn đến việc tải hoặc thực thi các file đó.
+## 1. Khái niệm
+- **Local File Inclusion (LFI)** là một lỗ hổng bảo mật web xảy ra khi ứng dụng không kiểm tra hoặc lọc dữ liệu đầu vào một cách chặt chẽ. LFI cho phép kẻ tấn công chỉ định đường dẫn tới các file trên máy chủ, dẫn đến việc tải hoặc thực thi các file đó.
 
 ---
 
@@ -12,9 +12,9 @@ Local File Inclusion (LFI) là một lỗ hổng bảo mật web xảy ra khi �
 
 ---
 
-## 3. Phân Biệt LFI và Path Traversal
+## 3. LFI và Path Traversal
 ### 3.1. Path Traversal
-Path Traversal là một lỗ hổng bảo mật cho phép kẻ tấn công truy cập các file không được phép trên server bằng cách thay đổi đường dẫn file. Path Traversal thường chỉ cho phép đọc file mà không thực thi chúng.
+- **Path Traversal** là một lỗ hổng bảo mật cho phép kẻ tấn công truy cập các file không được phép trên server bằng cách thay đổi đường dẫn file. **Path Traversal** thường chỉ cho phép **đọc file mà không thực thi chúng**.
 
 Ví dụ:
 ```http
@@ -22,13 +22,13 @@ http://example.com/index.php?file=../../etc/passwd
 ```
 
 ### 3.2. Local File Inclusion (LFI)
-LFI không chỉ cho phép truy cập file mà còn có khả năng thực thi nội dung file, đặc biệt khi ứng dụng sử dụng các hàm như `include()`. LFI có thể dẫn đến Remote Code Execution (RCE).
+- **LFI** không chỉ **cho phép truy cập file** mà còn có khả năng **thực thi nội dung file**, đặc biệt khi ứng dụng sử dụng các hàm như `include()`. LFI có thể dẫn đến **Remote Code Execution (RCE)**.
 
-Ví dụ:
+- Ví dụ:
 ```http
 http://example.com/index.php?page=../../var/log/apache2/access.log
 ```
-Nếu kẻ tấn công đã chèn mã độc vào log file, mã này có thể được thực thi thông qua LFI.
+- Nếu ta chèn mã độc vào log file, mã này có thể được thực thi thông qua LFI.
 
 | Tiêu Chí                  | Path Traversal                  | Local File Inclusion (LFI)       |
 |---------------------------|---------------------------------|-----------------------------------|
@@ -42,7 +42,7 @@ Nếu kẻ tấn công đã chèn mã độc vào log file, mã này có thể �
 ## 4. Cách Khai Thác
 
 ### 4.1. Khai Thác Cơ Bản
-Thay đổi giá trị tham số để tải các file nhạy cảm trên máy chủ:
+- Thay đổi giá trị tham số để tải các file nhạy cảm trên máy chủ:
 ```http
 http://example.com/index.php?page=../../etc/passwd
 ```
@@ -63,7 +63,7 @@ http://example.com/index.php?page=php://filter/convert.base64-encode/resource=co
 ```http
 POST /index.php?page=php://input
 
-Payload:
+- Payload:
 <?php system('id'); ?>
 ```
 
@@ -144,20 +144,3 @@ Payload:
 - **Dirb**: Tìm kiếm các file ẩn hoặc nhạy cảm trên server.
 
 ---
-
-## 9. Thực Hành
-### Môi Trường Thử Nghiệm
-- **Docker LFI Lab**:
-```bash
-docker pull vulnerables/web-dvwa
-docker run -d -p 80:80 vulnerables/web-dvwa
-```
-
-### Bài Tập Thực Hành
-- HackTheBox: Challenges về LFI.
-- TryHackMe: Module LFI.
-
----
-
-## 10. Kết Luận
-Local File Inclusion là một lỗ hổng nguy hiểm nhưng có thể phòng ngừa hiệu quả với các biện pháp kiểm tra đầu vào và cấu hình hệ thống an toàn. LFI và Path Traversal có sự khác biệt rõ rệt, trong đó LFI nguy hiểm hơn do khả năng thực thi mã độc. Việc hiểu rõ cơ chế và cách khai thác sẽ giúp bạn xây dựng các ứng dụng bảo mật hơn.
