@@ -146,11 +146,5 @@ POST /index.php?page=php://input
 ---
 
 ## Demo
-- Ở đây mình sẽ làm 1 số chall cơ bản liên quan để LFI.
-### DVWA
-#### File inclusion low
-**file1.php**
-- Ta có thể đọc được nội dung của `passwd` với `/etc/passwd`
-
-![image](https://github.com/user-attachments/assets/cda59539-c5c8-49d8-8538-75b77df01b06)
-- Giờ ta sẽ thử `rce` 
+- Ở đây mình sẽ làm 1 số chall cơ bản liên quan để **Path Traversal** và **LFI**.
+### Portswigger
