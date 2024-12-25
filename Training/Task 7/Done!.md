@@ -155,3 +155,8 @@ POST /index.php?page=php://input
 ![image](https://github.com/user-attachments/assets/9896f6a8-f561-4089-9d26-8eaad69a99f0)
 
 **[Lab: File path traversal, traversal sequences blocked with absolute path bypass](https://portswigger.net/web-security/learning-paths/path-traversal/common-obstacles-to-exploiting-path-traversal-vulnerabilities/file-path-traversal/lab-absolute-path-bypass)**
+
+![image](https://github.com/user-attachments/assets/56683f2d-61a4-49ec-a407-8085a14a8203)
+- Tương tự chall trên tuy nhiên lần này đường dẫn chỉ là `/etc/passwd`.
+
+![image](https://github.com/user-attachments/assets/df1a3944-1e9c-4bf4-9198-04714da3de42)
