@@ -148,3 +148,10 @@ POST /index.php?page=php://input
 ## Demo
 - Ở đây mình sẽ làm 1 số chall cơ bản liên quan để **Path Traversal** và **LFI**.
 ### Portswigger
+**[Lab: File path traversal, simple case](https://portswigger.net/web-security/learning-paths/path-traversal/reading-arbitrary-files-via-path-traversal/file-path-traversal/lab-simple)**
+![image](https://github.com/user-attachments/assets/3720b002-e979-45c3-9fb5-2e6890d4cce6)
+- Sử dụng Burp Suite bắt request tải ảnh về sau đó chỉnh sửa để có được nội dung file `passwd`.
+
+![image](https://github.com/user-attachments/assets/9896f6a8-f561-4089-9d26-8eaad69a99f0)
+
+**[Lab: File path traversal, traversal sequences blocked with absolute path bypass](https://portswigger.net/web-security/learning-paths/path-traversal/common-obstacles-to-exploiting-path-traversal-vulnerabilities/file-path-traversal/lab-absolute-path-bypass)**
