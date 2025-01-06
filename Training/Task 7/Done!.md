@@ -149,6 +149,7 @@ POST /index.php?page=php://input
 - Ở đây mình sẽ làm 1 số chall cơ bản liên quan để **Path Traversal** và **LFI**.
 ### Portswigger
 **[Lab: File path traversal, simple case](https://portswigger.net/web-security/learning-paths/path-traversal/reading-arbitrary-files-via-path-traversal/file-path-traversal/lab-simple)**
+
 ![image](https://github.com/user-attachments/assets/3720b002-e979-45c3-9fb5-2e6890d4cce6)
 - Sử dụng Burp Suite bắt request tải ảnh về sau đó chỉnh sửa để có được nội dung file `passwd`.
 
@@ -160,3 +161,17 @@ POST /index.php?page=php://input
 - Tương tự chall trên tuy nhiên lần này đường dẫn chỉ là `/etc/passwd`.
 
 ![image](https://github.com/user-attachments/assets/df1a3944-1e9c-4bf4-9198-04714da3de42)
+
+**[Lab: File path traversal, traversal sequences stripped with superfluous URL-decode](https://portswigger.net/web-security/learning-paths/path-traversal/common-obstacles-to-exploiting-path-traversal-vulnerabilities/file-path-traversal/lab-superfluous-url-decode#)**
+
+![image](https://github.com/user-attachments/assets/fbdf264e-8e41-4632-abd8-e0e5eed5fe20)
+- Chall có filler chặn 1 số ký tự nên ta bypass bằng null byte.
+
+![image](https://github.com/user-attachments/assets/3e0ca665-7dc3-47fc-8205-d1f90ceab0db)
+
+**[Lab: File path traversal, validation of start of path](https://portswigger.net/web-security/learning-paths/path-traversal/common-obstacles-to-exploiting-path-traversal-vulnerabilities/file-path-traversal/lab-validate-start-of-path#)**
+
+![image](https://github.com/user-attachments/assets/640ee31f-9a98-4338-99b6-c33e3c362642)
+- Chall này đường dẫn hơi khác 1 xíu đó là image nằm trong `/var/www/` thêm payload trực tiếp vào.
+
+![image](https://github.com/user-attachments/assets/cec96ae2-b4cc-4228-9229-b7a4b2c6db13)
