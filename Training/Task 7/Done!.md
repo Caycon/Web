@@ -175,3 +175,11 @@ POST /index.php?page=php://input
 - Chall này đường dẫn hơi khác 1 xíu đó là image nằm trong `/var/www/` thêm payload trực tiếp vào.
 
 ![image](https://github.com/user-attachments/assets/cec96ae2-b4cc-4228-9229-b7a4b2c6db13)
+
+**[Lab: File path traversal, validation of file extension with null byte bypass](https://portswigger.net/web-security/learning-paths/path-traversal/common-obstacles-to-exploiting-path-traversal-vulnerabilities/file-path-traversal/lab-validate-file-extension-null-byte-bypass#)**
+
+![image](https://github.com/user-attachments/assets/157e14db-af72-46eb-afee-89f662a14193)
+
+- Ta bypass bằng extension phần đuôi của passwd như chall đề cập.
+
+![image](https://github.com/user-attachments/assets/275454a1-ce33-4b94-a52a-3e9872b6977d)
