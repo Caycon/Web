@@ -183,3 +183,15 @@ POST /index.php?page=php://input
 - Ta bypass bằng extension phần đuôi của passwd như chall đề cập.
 
 ![image](https://github.com/user-attachments/assets/275454a1-ce33-4b94-a52a-3e9872b6977d)
+
+### Root-me
+**Backup file**
+- Chall cho mỗi ô login mà mình ko làm đc gì:))
+- Nên mình đi xài tool.
+
+![image](https://github.com/user-attachments/assets/9df92e56-2f92-4ece-b208-f02865c1cf31)
+- Với dirsearch mình tìm được `index.php~` là có thể truy cập được.
+
+![image](https://github.com/user-attachments/assets/b84976b2-651e-4aca-b294-b026a4340f8d)
+- Truy cập vào ta có được username và pass.
+- Đây chính là file backup.
